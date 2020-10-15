@@ -1,0 +1,143 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis.git'
+  commit: 8c9a96809537c9cddac3bbcaa0e4b7de5402608b
+compile: 'gradle --build-file {PROJECT}/{build_file} jar'
+execute: 'java {jvm_args} -cp {lib} fr.limos.decrypt.apps.rijndael.step1.MinimizeIterKt MZN2FZN={MZN2FZN} PICAT={PICAT} FZN_PICAT_SAT={FZN_PICAT_SAT}'
+shortcuts:
+  MZN2FZN: /home/rloic/.local/lib/MiniZinc/2.4.3/bin/mzn2fzn
+  PICAT: /home/rloic/.local/lib/Picat/3.0/picat
+  FZN_PICAT_SAT: /home/rloic/.local/lib/Picat/3.0/lib/fzn_picat_sat.pi
+  build_file: build.gradle
+  lib: 'build/libs/CP-differential-cryptanalysis-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures:
+  - ObjStep1
+stats:
+  - time
+experiments:
+  - name: CB128_KB128
+    parameters:
+      - CIPHER_BITS=128
+      - KEY_BITS=128
+      - MIN_Nr=3
+  - name: CB128_KB160
+    parameters:
+      - CIPHER_BITS=128
+      - KEY_BITS=160
+      - MIN_Nr=3
+  - name: CB128_KB192
+    parameters:
+      - CIPHER_BITS=128
+      - KEY_BITS=192
+      - MIN_Nr=3
+  - name: CB128_KB224
+    parameters:
+      - CIPHER_BITS=128
+      - KEY_BITS=224
+      - MIN_Nr=3
+  - name: CB128_KB256
+    parameters:
+      - CIPHER_BITS=128
+      - KEY_BITS=256
+      - MIN_Nr=3
+  - name: CB160_KB128
+    parameters:
+      - CIPHER_BITS=160
+      - KEY_BITS=128
+      - MIN_Nr=3
+  - name: CB160_KB160
+    parameters:
+      - CIPHER_BITS=160
+      - KEY_BITS=160
+      - MIN_Nr=3
+  - name: CB160_KB192
+    parameters:
+      - CIPHER_BITS=160
+      - KEY_BITS=192
+      - MIN_Nr=3
+  - name: CB160_KB224
+    parameters:
+      - CIPHER_BITS=160
+      - KEY_BITS=224
+      - MIN_Nr=3
+  - name: CB160_KB256
+    parameters:
+      - CIPHER_BITS=160
+      - KEY_BITS=256
+      - MIN_Nr=3
+  - name: CB192_KB128
+    parameters:
+      - CIPHER_BITS=192
+      - KEY_BITS=128
+      - MIN_Nr=3
+  - name: CB192_KB160
+    parameters:
+      - CIPHER_BITS=192
+      - KEY_BITS=160
+      - MIN_Nr=3
+  - name: CB192_KB192
+    parameters:
+      - CIPHER_BITS=192
+      - KEY_BITS=192
+      - MIN_Nr=3
+  - name: CB192_KB224
+    parameters:
+      - CIPHER_BITS=192
+      - KEY_BITS=224
+  - name: CB192_KB256
+    parameters:
+      - CIPHER_BITS=192
+      - KEY_BITS=256
+      - MIN_Nr=3
+  - name: CB224_KB128
+    parameters:
+      - CIPHER_BITS=224
+      - KEY_BITS=128
+      - MIN_Nr=3
+  - name: CB224_KB160
+    parameters:
+      - CIPHER_BITS=224
+      - KEY_BITS=160
+      - MIN_Nr=3
+  - name: CB224_KB192
+    parameters:
+      - CIPHER_BITS=224
+      - KEY_BITS=192
+      - MIN_Nr=3
+  - name: CB224_KB224
+    parameters:
+      - CIPHER_BITS=224
+      - KEY_BITS=224
+      - MIN_Nr=3
+  - name: CB224_KB256
+    parameters:
+      - CIPHER_BITS=224
+      - KEY_BITS=256
+      - MIN_Nr=3
+  - name: CB256_KB128
+    parameters:
+      - CIPHER_BITS=256
+      - KEY_BITS=128
+      - MIN_Nr=3
+  - name: CB256_KB160
+    parameters:
+      - CIPHER_BITS=256
+      - KEY_BITS=160
+      - MIN_Nr=3
+  - name: CB256_KB192
+    parameters:
+      - CIPHER_BITS=256
+      - KEY_BITS=192
+      - MIN_Nr=3
+  - name: CB256_KB224
+    parameters:
+      - CIPHER_BITS=256
+      - KEY_BITS=224
+      - MIN_Nr=3
+  - name: CB256_KB256
+    parameters:
+      - CIPHER_BITS=256
+      - KEY_BITS=256
+      - MIN_Nr=3
+
