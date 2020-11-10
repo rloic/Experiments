@@ -1,0 +1,958 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis.git'
+  commit: 4579df62498399047d99db042b865e58b04efd92
+compile: 'gradle --build-file {PROJECT}/{build_file} jar'
+execute: 'java {jvm_args} -cp {lib} fr.limos.decrypt.apps.rijndael.step1.EnumerateSatKt MZN2FZN={MZN2FZN} PICAT={PICAT} FZN_PICAT_SAT={FZN_PICAT_SAT}'
+shortcuts:
+  MZN2FZN: /home/rloic/.local/lib/MiniZinc/2.4.3/bin/mzn2fzn
+  PICAT: /home/rloic/.local/lib/Picat/3.0/picat
+  FZN_PICAT_SAT: /home/rloic/.local/lib/Picat/3.0/lib/fzn_picat_sat.pi
+  build_file: build.gradle
+  lib: 'build/libs/CP-differential-cryptanalysis-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures:
+  - NbSolutions
+stats:
+  - time
+experiments:
+- name: CB128_KB128
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=128
+    - Nr=3
+    - objStep1=5
+  level: 5
+- name: CB128_KB128
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=128
+    - Nr=4
+    - objStep1=12
+  level: 12
+- name: CB128_KB128
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=128
+    - Nr=5
+    - objStep1=17
+  level: 17
+- name: CB128_KB128
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=128
+    - Nr=6
+    - objStep1=21
+  level: 21
+- name: CB128_KB160
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=160
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB128_KB160
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=160
+    - Nr=4
+    - objStep1=5
+  level: 5
+- name: CB128_KB160
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=160
+    - Nr=5
+    - objStep1=10
+  level: 10
+- name: CB128_KB160
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=160
+    - Nr=6
+    - objStep1=16
+  level: 16
+- name: CB128_KB160
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=160
+    - Nr=7
+    - objStep1=18
+  level: 18
+- name: CB128_KB160
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=160
+    - Nr=8
+    - objStep1=22
+  level: 22
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=4
+    - objStep1=4
+  level: 4
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=5
+    - objStep1=5
+  level: 5
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=6
+    - objStep1=10
+  level: 10
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=7
+    - objStep1=13
+  level: 13
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=8
+    - objStep1=18
+  level: 18
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=9
+    - objStep1=24
+  level: 24
+- name: CB128_KB192
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=192
+    - Nr=10
+    - objStep1=29
+  level: 29
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=4
+    - objStep1=3
+  level: 3
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=5
+    - objStep1=5
+  level: 5
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=6
+    - objStep1=7
+  level: 7
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=7
+    - objStep1=13
+  level: 13
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=8
+    - objStep1=17
+  level: 17
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=9
+    - objStep1=21
+  level: 21
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=10
+    - objStep1=24
+  level: 24
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=11
+    - objStep1=26
+  level: 26
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=12
+    - objStep1=31
+  level: 31
+- name: CB128_KB224
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=224
+    - Nr=13
+    - objStep1=37
+  level: 37
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=4
+    - objStep1=3
+  level: 3
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=5
+    - objStep1=3
+  level: 3
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=6
+    - objStep1=5
+  level: 5
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=7
+    - objStep1=5
+  level: 5
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=8
+    - objStep1=10
+  level: 10
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=9
+    - objStep1=15
+  level: 15
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=10
+    - objStep1=16
+  level: 16
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=11
+    - objStep1=20
+  level: 20
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=12
+    - objStep1=20
+  level: 20
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=13
+    - objStep1=24
+  level: 24
+- name: CB128_KB256
+  parameters:
+    - CIPHER_BITS=128
+    - KEY_BITS=256
+    - Nr=14
+    - objStep1=24
+  level: 24
+- name: CB160_KB128
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=128
+    - Nr=3
+    - objStep1=8
+  level: 8
+- name: CB160_KB128
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=128
+    - Nr=4
+    - objStep1=16
+  level: 16
+- name: CB160_KB160
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=160
+    - Nr=3
+    - objStep1=5
+  level: 5
+- name: CB160_KB160
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=160
+    - Nr=4
+    - objStep1=10
+  level: 10
+- name: CB160_KB160
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=160
+    - Nr=5
+    - objStep1=17
+  level: 17
+- name: CB160_KB160
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=160
+    - Nr=6
+    - objStep1=21
+  level: 21
+- name: CB160_KB160
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=160
+    - Nr=7
+    - objStep1=26
+  level: 26
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=4
+    - objStep1=5
+  level: 5
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=5
+    - objStep1=9
+  level: 9
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=6
+    - objStep1=15
+  level: 15
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=7
+    - objStep1=19
+  level: 19
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=8
+    - objStep1=22
+  level: 22
+- name: CB160_KB192
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=192
+    - Nr=9
+    - objStep1=29
+  level: 29
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=4
+    - objStep1=5
+  level: 5
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=5
+    - objStep1=9
+  level: 9
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=6
+    - objStep1=14
+  level: 14
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=7
+    - objStep1=19
+  level: 19
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=8
+    - objStep1=23
+  level: 23
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=9
+    - objStep1=28
+  level: 28
+- name: CB160_KB224
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=224
+    - Nr=10
+    - objStep1=35
+  level: 35
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=4
+    - objStep1=3
+  level: 3
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=5
+    - objStep1=5
+  level: 5
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=6
+    - objStep1=11
+  level: 11
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=7
+    - objStep1=14
+  level: 14
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=8
+    - objStep1=19
+  level: 19
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=9
+    - objStep1=22
+  level: 22
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=10
+    - objStep1=26
+  level: 26
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=11
+    - objStep1=31
+  level: 31
+- name: CB160_KB256
+  parameters:
+    - CIPHER_BITS=160
+    - KEY_BITS=256
+    - Nr=12
+    - objStep1=40
+  level: 40
+- name: CB192_KB128
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=128
+    - Nr=3
+    - objStep1=9
+  level: 9
+- name: CB192_KB128
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=128
+    - Nr=4
+    - objStep1=20
+  level: 20
+- name: CB192_KB160
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=160
+    - Nr=3
+    - objStep1=6
+  level: 6
+- name: CB192_KB160
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=160
+    - Nr=4
+    - objStep1=15
+  level: 15
+- name: CB192_KB160
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=160
+    - Nr=5
+    - objStep1=18
+  level: 18
+- name: CB192_KB160
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=160
+    - Nr=6
+    - objStep1=26
+  level: 26
+- name: CB192_KB192
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=192
+    - Nr=3
+    - objStep1=5
+  level: 5
+- name: CB192_KB192
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=192
+    - Nr=4
+    - objStep1=9
+  level: 9
+- name: CB192_KB192
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=192
+    - Nr=5
+    - objStep1=14
+  level: 14
+- name: CB192_KB192
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=192
+    - Nr=6
+    - objStep1=19
+  level: 19
+- name: CB192_KB192
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=192
+    - Nr=7
+    - objStep1=25
+  level: 25
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=4
+    - objStep1=7
+  level: 7
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=5
+    - objStep1=13
+  level: 13
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=6
+    - objStep1=15
+  level: 15
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=7
+    - objStep1=23
+  level: 23
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=8
+    - objStep1=29
+  level: 29
+- name: CB192_KB224
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=224
+    - Nr=9
+    - objStep1=36
+  level: 36
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=4
+    - objStep1=4
+  level: 4
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=5
+    - objStep1=11
+  level: 11
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=6
+    - objStep1=17
+  level: 17
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=7
+    - objStep1=17
+  level: 17
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=8
+    - objStep1=23
+  level: 23
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=9
+    - objStep1=28
+  level: 28
+- name: CB192_KB256
+  parameters:
+    - CIPHER_BITS=192
+    - KEY_BITS=256
+    - Nr=10
+    - objStep1=37
+  level: 37
+- name: CB224_KB128
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=128
+    - Nr=3
+    - objStep1=9
+  level: 9
+- name: CB224_KB160
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=160
+    - Nr=3
+    - objStep1=9
+  level: 9
+- name: CB224_KB160
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=160
+    - Nr=4
+    - objStep1=19
+  level: 19
+- name: CB224_KB192
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=192
+    - Nr=3
+    - objStep1=6
+  level: 6
+- name: CB224_KB192
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=192
+    - Nr=4
+    - objStep1=12
+  level: 12
+- name: CB224_KB192
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=192
+    - Nr=5
+    - objStep1=20
+  level: 20
+- name: CB224_KB192
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=192
+    - Nr=6
+    - objStep1=26
+  level: 26
+- name: CB224_KB224
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=224
+    - Nr=3
+    - objStep1=5
+  level: 5
+- name: CB224_KB224
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=224
+    - Nr=4
+    - objStep1=10
+  level: 10
+- name: CB224_KB224
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=224
+    - Nr=5
+    - objStep1=15
+  level: 15
+- name: CB224_KB224
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=224
+    - Nr=6
+    - objStep1=22
+  level: 22
+- name: CB224_KB224
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=224
+    - Nr=7
+    - objStep1=30
+  level: 30
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=3
+    - objStep1=1
+  level: 1
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=4
+    - objStep1=5
+  level: 5
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=5
+    - objStep1=14
+  level: 14
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=6
+    - objStep1=16
+  level: 16
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=7
+    - objStep1=19
+  level: 19
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=8
+    - objStep1=27
+  level: 27
+- name: CB224_KB256
+  parameters:
+    - CIPHER_BITS=224
+    - KEY_BITS=256
+    - Nr=9
+    - objStep1=34
+  level: 34
+- name: CB256_KB128
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=128
+    - Nr=3
+    - objStep1=9
+  level: 9
+- name: CB256_KB160
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=160
+    - Nr=3
+    - objStep1=9
+  level: 9
+- name: CB256_KB160
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=160
+    - Nr=4
+    - objStep1=19
+  level: 19
+- name: CB256_KB192
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=192
+    - Nr=3
+    - objStep1=6
+  level: 6
+- name: CB256_KB192
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=192
+    - Nr=4
+    - objStep1=17
+  level: 17
+- name: CB256_KB192
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=192
+    - Nr=5
+    - objStep1=23
+  level: 23
+- name: CB256_KB224
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=224
+    - Nr=3
+    - objStep1=6
+  level: 6
+- name: CB256_KB224
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=224
+    - Nr=4
+    - objStep1=17
+  level: 17
+- name: CB256_KB224
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=224
+    - Nr=5
+    - objStep1=26
+  level: 26
+- name: CB256_KB224
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=224
+    - Nr=6
+    - objStep1=35
+  level: 35
+- name: CB256_KB256
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=256
+    - Nr=3
+    - objStep1=5
+  level: 5
+- name: CB256_KB256
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=256
+    - Nr=4
+    - objStep1=10
+  level: 10
+- name: CB256_KB256
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=256
+    - Nr=5
+    - objStep1=15
+  level: 15
+- name: CB256_KB256
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=256
+    - Nr=6
+    - objStep1=19
+  level: 19
+- name: CB256_KB256
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=256
+    - Nr=7
+    - objStep1=26
+  level: 26
+- name: CB256_KB256
+  parameters:
+    - CIPHER_BITS=256
+    - KEY_BITS=256
+    - Nr=8
+    - objStep1=35
+  level: 35
+
+
