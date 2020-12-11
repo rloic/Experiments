@@ -1,0 +1,273 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/aes-4-rounds.git'
+  commit: 1ffafd52d200b527ca3683cec4fceb530c0a285b
+compile: 'gradle --build-file {build_file} jar'
+execute: 'java {jvm_args} -cp {lib} apps.MinimizeSolutions la=GAC3rm'
+shortcuts:
+  build_file: build.gradle
+  lib: 'build/libs/aes-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures: [BestProba]
+stats:
+  - time
+timeout:
+  duration: 2
+  unit: SECONDS
+experiments:
+  - name: INPOS00_OUTPOS00
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=0:0
+  - name: INPOS00_OUTPOS01
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=0:1
+  - name: INPOS00_OUTPOS02
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=0:2
+  - name: INPOS00_OUTPOS03
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=0:3
+  - name: INPOS00_OUTPOS10
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=1:0
+  - name: INPOS00_OUTPOS11
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=1:1
+  - name: INPOS00_OUTPOS12
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=1:2
+  - name: INPOS00_OUTPOS13
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=1:3
+  - name: INPOS00_OUTPOS20
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=2:0
+  - name: INPOS00_OUTPOS21
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=2:1
+  - name: INPOS00_OUTPOS22
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=2:2
+  - name: INPOS00_OUTPOS23
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=2:3
+  - name: INPOS00_OUTPOS30
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=3:0
+  - name: INPOS00_OUTPOS31
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=3:1
+  - name: INPOS00_OUTPOS32
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=3:2
+  - name: INPOS00_OUTPOS33
+    parameters:
+      - IN_POS=0:0
+      - OUT_POS=3:3
+  - name: INPOS10_OUTPOS00
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=0:0
+  - name: INPOS10_OUTPOS01
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=0:1
+  - name: INPOS10_OUTPOS02
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=0:2
+  - name: INPOS10_OUTPOS03
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=0:3
+  - name: INPOS10_OUTPOS10
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=1:0
+  - name: INPOS10_OUTPOS11
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=1:1
+  - name: INPOS10_OUTPOS12
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=1:2
+  - name: INPOS10_OUTPOS13
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=1:3
+  - name: INPOS10_OUTPOS20
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=2:0
+  - name: INPOS10_OUTPOS21
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=2:1
+  - name: INPOS10_OUTPOS22
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=2:2
+  - name: INPOS10_OUTPOS23
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=2:3
+  - name: INPOS10_OUTPOS30
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=3:0
+  - name: INPOS10_OUTPOS31
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=3:1
+  - name: INPOS10_OUTPOS32
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=3:2
+  - name: INPOS10_OUTPOS33
+    parameters:
+      - IN_POS=1:0
+      - OUT_POS=3:3
+  - name: INPOS20_OUTPOS00
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=0:0
+  - name: INPOS20_OUTPOS01
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=0:1
+  - name: INPOS20_OUTPOS02
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=0:2
+  - name: INPOS20_OUTPOS03
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=0:3
+  - name: INPOS20_OUTPOS10
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=1:0
+  - name: INPOS20_OUTPOS11
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=1:1
+  - name: INPOS20_OUTPOS12
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=1:2
+  - name: INPOS20_OUTPOS13
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=1:3
+  - name: INPOS20_OUTPOS20
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=2:0
+  - name: INPOS20_OUTPOS21
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=2:1
+  - name: INPOS20_OUTPOS22
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=2:2
+  - name: INPOS20_OUTPOS23
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=2:3
+  - name: INPOS20_OUTPOS30
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=3:0
+  - name: INPOS20_OUTPOS31
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=3:1
+  - name: INPOS20_OUTPOS32
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=3:2
+  - name: INPOS20_OUTPOS33
+    parameters:
+      - IN_POS=2:0
+      - OUT_POS=3:3
+  - name: INPOS30_OUTPOS00
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=0:0
+  - name: INPOS30_OUTPOS01
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=0:1
+  - name: INPOS30_OUTPOS02
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=0:2
+  - name: INPOS30_OUTPOS03
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=0:3
+  - name: INPOS30_OUTPOS10
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=1:0
+  - name: INPOS30_OUTPOS11
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=1:1
+  - name: INPOS30_OUTPOS12
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=1:2
+  - name: INPOS30_OUTPOS13
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=1:3
+  - name: INPOS30_OUTPOS20
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=2:0
+  - name: INPOS30_OUTPOS21
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=2:1
+  - name: INPOS30_OUTPOS22
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=2:2
+  - name: INPOS30_OUTPOS23
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=2:3
+  - name: INPOS30_OUTPOS30
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=3:0
+  - name: INPOS30_OUTPOS31
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=3:1
+  - name: INPOS30_OUTPOS32
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=3:2
+  - name: INPOS30_OUTPOS33
+    parameters:
+      - IN_POS=3:0
+      - OUT_POS=3:3
