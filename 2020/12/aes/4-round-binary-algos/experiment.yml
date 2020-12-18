@@ -1,0 +1,32 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/aes-4-rounds.git'
+  commit: 2a8c108df2204a9ec3001f121b8d1fabcc38b94e
+compile: 'gradle --build-file {build_file} jar'
+execute: 'java {jvm_args} -cp {lib} apps.EnumerateSolutions ip=3:0 op=3:1 iv=0x61 ov=0xd5 d=10m'
+shortcuts:
+  build_file: build.gradle
+  lib: 'build/libs/aes-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures: [BestProba]
+stats:
+  - time
+timeout:
+  duration: 11
+  unit: MINUTES
+experiments:
+  - name: AC2001
+    parameters:
+      - ba=AC2001
+  - name: AC3
+    parameters:
+      - ba=AC3
+  - name: AC3rm
+    parameters:
+      - ba=AC3rm
+  - name: AC3bit+rm
+    parameters:
+      - ba=AC3bit+rm
+  - name: FC
+    parameters:
+      - ba=FC
