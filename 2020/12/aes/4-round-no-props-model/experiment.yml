@@ -1,0 +1,20 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/aes-4-rounds.git'
+  commit: c809c92ebf3d6e4ecaace071b2486a98b764a785
+compile: 'gradle --build-file {build_file} jar'
+execute: 'java {jvm_args} -cp {lib} apps.EnumerateSolutions'
+shortcuts:
+  build_file: build.gradle
+  lib: 'build/libs/aes-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures: [BestProba]
+stats: []
+experiments:
+  - name: main
+    parameters:
+     - 'IN_POS=3:0'
+     - 'OUT_POS=3:1'
+     - 'IN_VAL=0x61'
+     - 'OUT_VAL=0xd5'
+     - 'PRINT_DELAY=20m'
