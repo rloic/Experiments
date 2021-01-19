@@ -1,0 +1,186 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis.git'
+  commit: f63ad855ed9105bb3447786ccbbd81b9990bc970
+compile: 'gradle jar'
+execute: 'java {jvm_args} -cp {lib} fr.limos.decrypt.apps.rijndael.step2.OptimizeSatKt MZN2FZN={MZN2FZN} PICAT={PICAT} FZN_PICAT_SAT={FZN_PICAT_SAT} mod=TOSC'
+shortcuts:
+  DEPENDENCIES: /home/rloic/.local/lib
+  MZN2FZN: '{DEPENDENCIES}/MiniZinc/2.4.3/bin/mzn2fzn'
+  PICAT: '{DEPENDENCIES}/Picat/{PICAT_VERSION}/picat'
+  FZN_PICAT_SAT: '{DEPENDENCIES}/Picat/{PICAT_VERSION}/lib/fzn_picat_sat.pi'
+  PICAT_VERSION: '3.0'
+  build_file: build.gradle
+  lib: 'build/libs/CP-differential-cryptanalysis-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures:
+  - NbSolutions
+  - ObjStep1
+  - BestObjStep1
+  - MaxObjStep1
+  - BestProbability
+  - Certification
+stats:
+  - time
+experiments:
+- name: 128-3-5
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=128
+   - Nr=3
+   - objStep1=5
+  level: 5
+- name: 128-4-12
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=128
+   - Nr=4
+   - objStep1=12
+  level: 12
+- name: 128-5-17
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=128
+   - Nr=5
+   - objStep1=17
+  level: 27
+- name: 192-3-1
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=3
+   - objStep1=1
+  level: 1
+- name: 192-4-4
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=4
+   - objStep1=4
+  level: 4
+- name: 192-5-5
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=5
+   - objStep1=5
+  level: 5
+- name: 192-6-10
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=6
+   - objStep1=10
+  level: 10
+- name: 192-7-13
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=7
+   - objStep1=13
+  level: 13
+- name: 192-8-18
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=8
+   - objStep1=18
+  level: 18
+- name: 192-9-24
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=9
+   - objStep1=24
+  level: 24
+- name: 192-10-29
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=192
+   - Nr=10
+   - objStep1=29
+  level: 29
+- name: 256-3-1
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=3
+   - objStep1=1
+  level: 1
+- name: 256-4-3
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=4
+   - objStep1=3
+  level: 3
+- name: 256-5-3
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=5
+   - objStep1=3
+  level: 3
+- name: 256-6-5
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=6
+   - objStep1=5
+  level: 5
+- name: 256-7-5
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=7
+   - objStep1=5
+  level: 5
+- name: 256-8-10
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=8
+   - objStep1=10
+  level: 10
+- name: 256-9-15
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=9
+   - objStep1=15
+  level: 15
+- name: 256-10-16
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=10
+   - objStep1=16
+  level: 16
+- name: 256-11-20
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=11
+   - objStep1=20
+  level: 20
+- name: 256-12-20
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=12
+   - objStep1=20
+  level: 20
+- name: 256-13-24
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=13
+   - objStep1=24
+  level: 24
+- name: 256-14-24
+  parameters:
+   - CIPHER_BITS=128
+   - KEY_BITS=256
+   - Nr=14
+   - objStep1=24
+  level: 24
