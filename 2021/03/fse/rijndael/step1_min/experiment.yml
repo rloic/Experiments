@@ -1,0 +1,68 @@
+versioning:
+  repository: 'git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis.git'
+  commit: c0edc10a58fb96de30bd1aaf3fa38fa9387455e7
+  submodules: true
+compile: 'gradle jar'
+execute: 'java {jvm_args} -cp {lib} fr.limos.decrypt.apps.rijndael.step1.MinimizeIterKt MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}'
+shortcuts:
+  DEPENDENCIES: /home/rloic/.local/lib
+  MINIZINC: '{DEPENDENCIES}/MiniZinc/2.5.3/bin/minizinc'
+  PICAT: '{DEPENDENCIES}/Picat/3.0/picat'
+  PICAT_FZN: '{DEPENDENCIES}/Picat/3.0/lib/fzn_picat_sat.pi'
+  lib: 'build/libs/CP-differential-cryptanalysis-1.0-SNAPSHOT.jar'
+  jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
+iterations: 1
+measures: [Nr3, Nr4, Nr5, Nr6, Nr7, Nr8, Nr9, Nr10, Nr11, Nr12, Nr13, Nr14]
+stats:
+  - time
+experiments:
+- name: 128-128
+  parameters: [TextSize=128, KeySize=128]
+- name: 128-160
+  parameters: [TextSize=128, KeySize=160]
+- name: 128-192
+  parameters: [TextSize=128, KeySize=192]
+- name: 128-224
+  parameters: [TextSize=128, KeySize=224]
+- name: 128-256
+  parameters: [TextSize=128, KeySize=256]
+- name: 160-128
+  parameters: [TextSize=160, KeySize=128]
+- name: 160-160
+  parameters: [TextSize=160, KeySize=160]
+- name: 160-192
+  parameters: [TextSize=160, KeySize=192]
+- name: 160-224
+  parameters: [TextSize=160, KeySize=224]
+- name: 160-256
+  parameters: [TextSize=160, KeySize=256]
+- name: 192-128
+  parameters: [TextSize=192, KeySize=128]
+- name: 192-160
+  parameters: [TextSize=192, KeySize=160]
+- name: 192-192
+  parameters: [TextSize=192, KeySize=192]
+- name: 192-224
+  parameters: [TextSize=192, KeySize=224]
+- name: 192-256
+  parameters: [TextSize=192, KeySize=256]
+- name: 224-128
+  parameters: [TextSize=224, KeySize=128]
+- name: 224-160
+  parameters: [TextSize=224, KeySize=160]
+- name: 224-192
+  parameters: [TextSize=224, KeySize=192]
+- name: 224-224
+  parameters: [TextSize=224, KeySize=224]
+- name: 224-256
+  parameters: [TextSize=224, KeySize=256]
+- name: 256-128
+  parameters: [TextSize=256, KeySize=128]
+- name: 256-160
+  parameters: [TextSize=256, KeySize=160]
+- name: 256-192
+  parameters: [TextSize=256, KeySize=192]
+- name: 256-224
+  parameters: [TextSize=256, KeySize=224]
+- name: 256-256
+  parameters: [TextSize=256, KeySize=256]
