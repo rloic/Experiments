@@ -1,6 +1,6 @@
 versioning:
   repository: 'git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis.git'
-  commit: 02d8b7bade7dbf523b43e06588aa90271fc2ba4c
+  commit: cff2763ad00facfb12683d619db6782a3e94f187
   submodules: true
 compile: 'gradle jar'
 execute: 'java {jvm_args} -cp {lib} fr.limos.decrypt.apps.rijndael.step1.MinimizeIterKt MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}'
