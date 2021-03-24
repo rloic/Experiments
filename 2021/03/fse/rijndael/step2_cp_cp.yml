@@ -9,6 +9,9 @@ shortcuts:
   jvm_args: '-Xmx16g -Duser.country=UK -Duser.language=en'
 iterations: 1
 measures:  [skip, skip, opt]
+timeout: 
+  duration: 5
+  unit: HOURS
 stats:
   - time
 experiments:
