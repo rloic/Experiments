@@ -1,0 +1,47 @@
+(
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis",
+        commit: Some("209d0ca9501532966aca55146ba71fe9f93f0322"),
+        sub_modules: true
+    ),
+    commands: (
+        build: "gradle jar",
+        execute: "java {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} Minizinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
+    ),
+    shortcuts: {
+        "JVM_ARGS": "-Xmx16g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/differential-cryptanalysis-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "fr.limos.decrypt.apps.rijndael.step1.optimizeiterative.sat.MainKt",
+        "MINIZINC": "{HOME}/.local/libraries/MiniZinc/2.5.3/bin/minizinc",
+        "PICAT": "{HOME}/.local/libraries/Picat/3.0.5/picat",
+        "PICAT_FZN": "{HOME}/.local/libraries/Picat/3.0.5/lib/fzn_picat_sat.pi",
+        "HOME": "/home/rloic"
+    },
+    outputs: (
+        delimiter: ",",
+        columns: [
+            Some("Nr3"), 
+            Some("Nr4"),
+            Some("Nr5"), 
+            Some("Nr6"), 
+            Some("Nr7"), 
+            Some("Nr8"), 
+            Some("Nr9"), 
+            Some("Nr10"), 
+            Some("Nr11"), 
+            Some("Nr12"), 
+            Some("Nr13"), 
+            Some("Nr14")
+        ]
+    ),
+    iterations: 1,
+    experiments: [
+		(
+			name: "128-128",
+			parameters: [
+				"TextSize=128",
+				"KeySize=128",
+			]
+		),
+    ]
+)
