@@ -36,12 +36,180 @@
     ),
     iterations: 1,
     experiments: [
-		(
-			name: "128-128",
-			parameters: [
-				"TextSize=128",
-				"KeySize=128",
-			]
-		),
+        (
+            name: "128-128",
+            parameters: [
+                "TextSize=128",
+                "KeySize=128",
+            ]
+        ),
+        (
+            name: "128-160",
+            parameters: [
+                "TextSize=128",
+                "KeySize=160",
+            ]
+        ),
+        (
+            name: "128-192",
+            parameters: [
+                "TextSize=128",
+                "KeySize=192",
+            ]
+        ),
+        (
+            name: "128-224",
+            parameters: [
+                "TextSize=128",
+                "KeySize=224",
+            ]
+        ),
+        (
+            name: "128-256",
+            parameters: [
+                "TextSize=128",
+                "KeySize=256",
+            ]
+        ),
+        (
+            name: "160-128",
+            parameters: [
+                "TextSize=160",
+                "KeySize=128",
+            ]
+        ),
+        (
+            name: "160-160",
+            parameters: [
+                "TextSize=160",
+                "KeySize=160",
+            ]
+        ),
+        (
+            name: "160-192",
+            parameters: [
+                "TextSize=160",
+                "KeySize=192",
+            ]
+        ),
+        (
+            name: "160-224",
+            parameters: [
+                "TextSize=160",
+                "KeySize=224",
+            ]
+        ),
+        (
+            name: "160-256",
+            parameters: [
+                "TextSize=160",
+                "KeySize=256",
+            ]
+        ),
+        (
+            name: "192-128",
+            parameters: [
+                "TextSize=192",
+                "KeySize=128",
+            ]
+        ),
+        (
+            name: "192-160",
+            parameters: [
+                "TextSize=192",
+                "KeySize=160",
+            ]
+        ),
+        (
+            name: "192-192",
+            parameters: [
+                "TextSize=192",
+                "KeySize=192",
+            ]
+        ),
+        (
+            name: "192-224",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+            ]
+        ),
+        (
+            name: "192-256",
+            parameters: [
+                "TextSize=192",
+                "KeySize=256",
+            ]
+        ),
+        (
+            name: "224-128",
+            parameters: [
+                "TextSize=224",
+                "KeySize=128",
+            ]
+        ),
+        (
+            name: "224-160",
+            parameters: [
+                "TextSize=224",
+                "KeySize=160",
+            ]
+        ),
+        (
+            name: "224-192",
+            parameters: [
+                "TextSize=224",
+                "KeySize=192",
+            ]
+        ),
+        (
+            name: "224-224",
+            parameters: [
+                "TextSize=224",
+                "KeySize=224",
+            ]
+        ),
+        (
+            name: "224-256",
+            parameters: [
+                "TextSize=224",
+                "KeySize=256",
+            ]
+        ),
+        (
+            name: "256-128",
+            parameters: [
+                "TextSize=256",
+                "KeySize=128",
+            ]
+        ),
+        (
+            name: "256-160",
+            parameters: [
+                "TextSize=256",
+                "KeySize=160",
+            ]
+        ),
+        (
+            name: "256-192",
+            parameters: [
+                "TextSize=256",
+                "KeySize=192",
+            ]
+        ),
+        (
+            name: "256-224",
+            parameters: [
+                "TextSize=256",
+                "KeySize=224",
+            ]
+        ),
+        (
+            name: "256-256",
+            parameters: [
+                "TextSize=256",
+                "KeySize=256",
+            ]
+        )
     ]
 )
