@@ -12,10 +12,9 @@
         "JVM_ARGS": "-Xmx16g -Duser.country=UK -Duser.language=en",
         "JAR_PATH": "build/libs/differential-cryptanalysis-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "fr.limos.decrypt.apps.rijndael.step1.optimizeiterative.sat.MainKt",
-        "MINIZINC": "{HOME}/.local/libraries/MiniZinc/2.5.3/bin/minizinc",
-        "PICAT": "{HOME}/.local/libraries/Picat/3.0.5/picat",
-        "PICAT_FZN": "{HOME}/.local/libraries/Picat/3.0.5/lib/fzn_picat_sat.pi",
-        "HOME": "/home/rloic"
+        "MINIZINC": "!Path to minizinc",
+        "PICAT": "!Path to picat",
+        "PICAT_FZN": "!Path to the fzn_picat_sat.pi picat lib",
     },
     outputs: (
         delimiter: ",",

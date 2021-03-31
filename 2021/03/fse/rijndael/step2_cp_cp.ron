@@ -6,25 +6,19 @@
     ),
     commands: (
         build: "gradle jar",
-        execute: "java {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
+        execute: "java {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS}"
     ),
     shortcuts: {
         "JVM_ARGS": "-Xmx16g -Duser.country=UK -Duser.language=en",
         "JAR_PATH": "build/libs/differential-cryptanalysis-1.0-SNAPSHOT.jar",
-        "MAIN_CLASS": "fr.limos.decrypt.apps.rijndael.step2.sat.OptimizeSatKt",
-        "MINIZINC": "!The path to minizinc",
-        "PICAT": "!The path to picat",
-        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+        "MAIN_CLASS": "fr.limos.decrypt.apps.rijndael.step2.cp.MainKt",
     },
     outputs: (
         delimiter: ", ",
         columns: [
-            Some("nb_sols"), 
-            Some("obj_step1"),
-            Some("best_obj_step1"), 
-            Some("max_obj_step1"), 
-            Some("best_probability"), 
-            Some("is_certified")
+            None,
+            None,
+            Some("best_probability")
         ]
     ),
     iterations: 1,
