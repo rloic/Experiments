@@ -864,6 +864,78 @@
                 "Nr=3",
                 "ObjStep1=9"
             ]
+        ),
+        (
+            name: "Rijndael-192-224-3",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+                "Nr=3",
+                "ObjStep1=4"
+            ]
+        ),
+        (
+            name: "Rijndael-192-224-4",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+                "Nr=4",
+                "ObjStep1=8"
+            ]
+        ),
+        (
+            name: "Rijndael-192-224-5",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+                "Nr=5",
+                "ObjStep1=15"
+            ]
+        ),
+        (
+            name: "Rijndael-192-224-6",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+                "Nr=6",
+                "ObjStep1=16"
+            ]
+        ),
+        (
+            name: "Rijndael-192-224-7",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+                "Nr=7",
+                "ObjStep1=24"
+            ]
+        ),
+        (
+            name: "Rijndael-192-224-8",
+            parameters: [
+                "TextSize=192",
+                "KeySize=224",
+                "Nr=8",
+                "ObjStep1=32"
+            ]
+        ),
+        (
+            name: "Rijndael-256-160-3",
+            parameters: [
+                "TextSize=256",
+                "KeySize=160",
+                "Nr=3",
+                "ObjStep1=9"
+            ]
+        ),
+        (
+            name: "Rijndael-256-160-4",
+            parameters: [
+                "TextSize=256",
+                "KeySize=160",
+                "Nr=4",
+                "ObjStep1=20"
+            ]
         )
     ]
 )
