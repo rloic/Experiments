@@ -13,14 +13,14 @@
         "JAR_PATH": "build/libs/differential-cryptanalysis-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "fr.limos.decrypt.apps.rijndael.step2.cp.MainKt",
     },
-    outputs: (
+    outputs: Some((
         delimiter: ", ",
         columns: [
             None,
             None,
             Some("best_probability")
         ]
-    ),
+    )),
     experiments: [
       (
          name: "Rijndael-128-160-3",
