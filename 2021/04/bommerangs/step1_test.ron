@@ -1,0 +1,2427 @@
+(
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny",
+        commit: Some("52d865a78287b8867670b2925092cfaeef6967ed"),
+        sub_modules: true
+    ),
+    commands: (
+        build: "gradle jar",
+        execute: "java {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} Minizinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
+    ),
+    shortcuts: {
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "com.github.rloic.phd.boomerang.crypto.rijndael.boomerang.relatedkey.step1.optimization.MainKt",
+        "MINIZINC": "!Path to minizinc",
+        "PICAT": "!Path to picat",
+        "PICAT_FZN": "!Path to the fzn_picat_sat.pi picat lib",
+    },
+    outputs: Some((
+        delimiter: ",",
+        columns: [
+            Some("ObjStep1")
+        ]
+    )),
+    experiments: [
+        (
+            name: "128-128-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-128-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=128",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "128-160-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-160-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=128",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "128-192-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-192-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=128",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "128-224-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-224-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=128",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "128-256-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "128-256-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=128",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-128-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-128-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=160",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "160-160-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-160-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=160",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "160-192-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-192-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=160",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "160-224-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-224-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=160",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "160-256-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "160-256-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=160",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-128-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-128-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=192",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "192-160-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-160-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=192",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "192-192-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-192-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=192",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "192-224-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-224-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=192",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "192-256-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "192-256-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=192",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-128-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-128-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=224",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "224-160-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-160-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=224",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "224-192-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-192-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=224",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "224-224-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-224-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=224",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "224-256-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "224-256-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=224",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-128-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-128-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=256",
+                "KeySize=128"
+            ]
+        ),
+        (
+            name: "256-160-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-160-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=256",
+                "KeySize=160"
+            ]
+        ),
+        (
+            name: "256-192-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-192-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=256",
+                "KeySize=192"
+            ]
+        ),
+        (
+            name: "256-224-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-224-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=256",
+                "KeySize=224"
+            ]
+        ),
+        (
+            name: "256-256-3",
+            parameters: [
+                "Nr=3",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-4",
+            parameters: [
+                "Nr=4",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-5",
+            parameters: [
+                "Nr=5",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-6",
+            parameters: [
+                "Nr=6",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-7",
+            parameters: [
+                "Nr=7",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-8",
+            parameters: [
+                "Nr=8",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-9",
+            parameters: [
+                "Nr=9",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-10",
+            parameters: [
+                "Nr=10",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-11",
+            parameters: [
+                "Nr=11",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-12",
+            parameters: [
+                "Nr=12",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-13",
+            parameters: [
+                "Nr=13",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        ),
+        (
+            name: "256-256-14",
+            parameters: [
+                "Nr=14",
+                "TextSize=256",
+                "KeySize=256"
+            ]
+        )
+    ]
+)
