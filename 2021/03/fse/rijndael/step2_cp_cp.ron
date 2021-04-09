@@ -21,8 +21,6 @@
             Some("best_probability")
         ]
     ),
-    iterations: 1,
-	global_timeout: Some("11h 55m"),
     experiments: [
 		(
 			name: "Rijndael-128-160-3",
