@@ -1,12 +1,18 @@
 (
     description: Some("
-        Rijndael model using PicatSat (lingeling) to solve the Step1 and Choco (CP) to solve the step2.
-        The step2 model is using a decomposition of MixColumn.
-        Moreover we add new value heuristic for the Sboxes. This heuristic try to select the best probability for each S-Boxes if possible.
+# Description
+Rijndael model using PicatSat (lingeling) to solve the Step1 and Choco (CP) to solve the step2.
+The step2 model is using a decomposition of MixColumn.
+Moreover we add new value heuristic for the Sboxes. This heuristic try to select the best probability for each S-Boxes if possible.
+
+# Notes
+## Modification note for commit #0839d2f7
+- Simplify the main loop to get closer to the pseudo-code writen for the paper
+- Remove number of solutions and certification fields in output
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis",
-        commit: Some("04f71ce888963ae3cfba532edcdf73a2f064bca9"),
+        commit: Some("0839d2f7280f6b14549a2d7cb1166d6ab4653047"),
         sub_modules: true
     ),
     commands: (
@@ -24,13 +30,11 @@
     outputs: Some((
         delimiter: ", ",
         columns: [
-            Some("nb_sols"), 
             Some("obj_step1"),
-            Some("min_obj_step1"),
-            Some("best_obj_step1"), 
-            Some("max_obj_step1"), 
-            Some("best_probability"), 
-            Some("is_certified")
+            Some("obj_step1 of first concrete solution"),
+            Some("obj_step1 of best concrete solution"), 
+            Some("max obj_step1"), 
+            Some("best_probability")
         ]
     )),
     experiments: [
