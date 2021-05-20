@@ -9,10 +9,12 @@ Moreover we add new value heuristic for the Sboxes. This heuristic try to select
 ## Modification note for commit #0839d2f7
 - Simplify the main loop to get closer to the pseudo-code writen for the paper
 - Remove number of solutions and certification fields in output
+## Modification note for commit #504b0552
+- Restore XOR_TUPLES in Rijndael
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis",
-        commit: Some("0839d2f7280f6b14549a2d7cb1166d6ab4653047"),
+        commit: Some("504b0552da9af6d15e563828199aa236464cc8f9"),
         sub_modules: true
     ),
     commands: (
