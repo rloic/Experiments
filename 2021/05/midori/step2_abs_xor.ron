@@ -1,0 +1,63 @@
+(
+    versioning: (
+        url: "github.com:rloic/thesis-code",
+        commit: Some("98ee0258a19cc3a19994f2e411d5650abd78b9f0"),
+    ),
+    commands: (
+        build: "gradle --build-file {gradle_conf} {gradle_task}", // Use gradle 5.6.4
+        execute: "{java} {build}/{exec} {main_class} model=GlobalXOR order=Reverse heuristic=Custom"
+    ),
+    shortcuts: {
+        "jvm_args": "-Xmx16g -Duser.country=UK -Duser.language=en",
+        "gradle_conf": "build_exp.gradle",
+        "gradle_task": "jar",
+        "exec": "Experiment-1.0-SNAPSHOT.jar",
+        "main_class": "com.github.rloic.kt.cryptography.midori.app.relatedkey.concrete.RelatedKeyDifferentialPathKt",
+        "build": "build/libs",
+        "java": "java {jvm_args} -cp",
+    },
+    outputs: Some((
+        delimiter: ",",
+        columns: [
+            Some("probability"),
+            Some("#solutions"),
+            Some("#nodes")
+        ]
+    )),
+    experiments: [
+        // Midori 64
+        ( name: "Midori64-3-1",   parameters: ["version=Midori-64", "r=3",   "sb=1"]  ),
+        ( name: "Midori64-4-2",   parameters: ["version=Midori-64", "r=3",   "sb=2"]  ),
+        ( name: "Midori64-5-2",   parameters: ["version=Midori-64", "r=3",   "sb=2"]  ),
+        ( name: "Midori64-6-3",   parameters: ["version=Midori-64", "r=3",   "sb=3"]  ),
+        ( name: "Midori64-7-3",   parameters: ["version=Midori-64", "r=3",   "sb=3"]  ),
+        ( name: "Midori64-8-4",   parameters: ["version=Midori-64", "r=3",   "sb=4"]  ),
+        ( name: "Midori64-9-4",   parameters: ["version=Midori-64", "r=3",   "sb=4"]  ),
+        ( name: "Midori64-10-5",  parameters: ["version=Midori-64", "r=3",   "sb=5"]  ),
+        ( name: "Midori64-11-5",  parameters: ["version=Midori-64", "r=3",   "sb=5"]  ),
+        ( name: "Midori64-12-6",  parameters: ["version=Midori-64", "r=3",   "sb=6"]  ),
+        ( name: "Midori64-13-6",  parameters: ["version=Midori-64", "r=3",   "sb=6"]  ),
+        ( name: "Midori64-14-7",  parameters: ["version=Midori-64", "r=3",   "sb=7"]  ),
+        ( name: "Midori64-15-7",  parameters: ["version=Midori-64", "r=3",   "sb=7"]  ),
+        ( name: "Midori64-16-8",  parameters: ["version=Midori-64", "r=3",   "sb=8"]  ),
+        // Midori 128
+        ( name: "Midori128-3-3",   parameters: ["version=Midori-128", "r=3",  "sb=3"]  ),
+        ( name: "Midori128-4-4",   parameters: ["version=Midori-128", "r=4",  "sb=4"]  ),
+        ( name: "Midori128-5-5",   parameters: ["version=Midori-128", "r=5",  "sb=5"]  ),
+        ( name: "Midori128-6-6",   parameters: ["version=Midori-128", "r=6",  "sb=6"]  ),
+        ( name: "Midori128-7-7",   parameters: ["version=Midori-128", "r=7",  "sb=7"]  ),
+        ( name: "Midori128-8-8",   parameters: ["version=Midori-128", "r=8",  "sb=8"]  ),
+        ( name: "Midori128-9-9",   parameters: ["version=Midori-128", "r=9",  "sb=9"]  ),
+        ( name: "Midori128-10-10", parameters: ["version=Midori-128", "r=10", "sb=10"] ),
+        ( name: "Midori128-11-11", parameters: ["version=Midori-128", "r=11", "sb=11"] ),
+        ( name: "Midori128-12-12", parameters: ["version=Midori-128", "r=12", "sb=12"] ),
+        ( name: "Midori128-13-13", parameters: ["version=Midori-128", "r=13", "sb=13"] ),
+        ( name: "Midori128-14-14", parameters: ["version=Midori-128", "r=14", "sb=14"] ),
+        ( name: "Midori128-15-15", parameters: ["version=Midori-128", "r=15", "sb=15"] ),
+        ( name: "Midori128-16-16", parameters: ["version=Midori-128", "r=16", "sb=16"] ),
+        ( name: "Midori128-17-17", parameters: ["version=Midori-128", "r=17", "sb=17"] ),
+        ( name: "Midori128-18-18", parameters: ["version=Midori-128", "r=18", "sb=18"] ),
+        ( name: "Midori128-19-19", parameters: ["version=Midori-128", "r=19", "sb=19"] ),
+        ( name: "Midori128-20-20", parameters: ["version=Midori-128", "r=20", "sb=20"] ),
+    ]
+)
