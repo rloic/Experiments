@@ -1,0 +1,86 @@
+(
+    description: Some("
+# Description
+Rijndael model using PicatSat (lingeling) to solve the Step1 and Choco (CP) to solve the step2.
+The step2 model is using a decomposition of MixColumn.
+Moreover we add new value heuristic for the Sboxes. This heuristic try to select the best probability for each S-Boxes if possible.
+
+# Notes
+## Modification note for commit #0839d2f7
+- Simplify the main loop to get closer to the pseudo-code writen for the paper
+- Remove number of solutions and certification fields in output
+## Modification note for commit #504b0552
+- Restore XOR_TUPLES in Rijndael
+## Modification note for commit #1cc30de5
+- Fix LB bound management in step 2
+## Modification note for commit #98a2b30e
+- Remove unused mix columns for last round
+## Modification note for commit #f8ffe0d9
+- Cancel increment of S-boxes since we run the experiment for 23, 24, 25 & 26 S-boxes.
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis",
+        commit: Some("f8ffe0d99f0fc7eb2b150db135f3e68c5e501a73"),
+        sub_modules: true
+    ),
+    commands: (
+        build: "gradle jar",
+        execute: "java {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
+    ),
+    shortcuts: {
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/differential-cryptanalysis-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "fr.limos.decrypt.apps.rijndael.step2.sat.OptimizeSatKt",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    outputs: Some((
+        delimiter: ", ",
+        columns: [
+            Some("obj_step1"),
+            Some("obj_step1 of first concrete solution"),
+            Some("obj_step1 of best concrete solution"), 
+            Some("max obj_step1"), 
+            Some("best_probability")
+        ]
+    )),
+    experiments: [
+        (
+            name: "Rijndael-128-160-8-23",
+            parameters: [
+                "TextSize=128",
+                "KeySize=160",
+                "Nr=8",
+                "ObjStep1=23"
+            ]
+        ),
+        (
+            name: "Rijndael-128-160-8-24",
+            parameters: [
+                "TextSize=128",
+                "KeySize=160",
+                "Nr=8",
+                "ObjStep1=24"
+            ]
+        ),
+        (
+            name: "Rijndael-128-160-8-25",
+            parameters: [
+                "TextSize=128",
+                "KeySize=160",
+                "Nr=8",
+                "ObjStep1=25"
+            ]
+        ),
+        (
+            name: "Rijndael-128-160-8-26",
+            parameters: [
+                "TextSize=128",
+                "KeySize=160",
+                "Nr=8",
+                "ObjStep1=26"
+            ]
+        ),
+    ]
+)
