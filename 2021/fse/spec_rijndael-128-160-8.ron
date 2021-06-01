@@ -19,10 +19,12 @@ Moreover we add new value heuristic for the Sboxes. This heuristic try to select
 - Cancel increment of S-boxes since we run the experiment for 23, 24, 25 & 26 S-boxes.
 ## Modification note for commit #269d057a
 - Write MZN models in different files.
+## Modification note for commit #4062be68
+- Fix broken loop (infinite loop because of no leaving when no solution was found)
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis",
-        commit: Some("269d057a886aff39c1399a5cf0c13fe54b823f42"),
+        commit: Some("4062be68357917de38674d948e219d935dc06238"),
         sub_modules: true
     ),
     commands: (
