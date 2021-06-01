@@ -13,10 +13,12 @@ Moreover we add new value heuristic for the Sboxes. This heuristic try to select
 - Restore XOR_TUPLES in Rijndael
 ## Modification note for commit #1cc30de5
 - Fix LB bound management in step 2
+## Modification note for commit #98a2b30ef
+- Remove unused mix columns for last round
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/cp-differential-cryptanalysis",
-        commit: Some("1cc30de51515903eea2c3177731b69c5d8df2282"),
+        commit: Some("98a2b30ef58500b4156c4a71efe28625912832ef"),
         sub_modules: true
     ),
     commands: (
