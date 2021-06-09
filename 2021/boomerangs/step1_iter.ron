@@ -4,7 +4,7 @@ Boomerang attack on Rijndael. Ignoring first and last round.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
-        commit: Some("97d613b6c0f9497f961df386c941bcc5c42475ce"),
+        commit: Some("05f1f542bfaf5f560985c651aedab6ee99dabb78"),
         sub_modules: true
     ),
     commands: (
