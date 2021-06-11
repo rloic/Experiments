@@ -1,17 +1,22 @@
 (
     description: Some("
 Boomerang attack on Rijndael. Ignoring first and last round.
+Release notes:
+- For commit 8ed34b8436f980a555d8ba4b1ed6e30bddf08983
+Update presenters and fix wrong shiftrow when parsing step 1 solutions
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
-        commit: Some("05f1f542bfaf5f560985c651aedab6ee99dabb78"),
+        commit: Some("8ed34b8436f980a555d8ba4b1ed6e30bddf08983"),
         sub_modules: true
     ),
     commands: (
-        build: "gradle jar",
-        execute: "java {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
     ),
     shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
         "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
         "JAR_PATH": "build/libs/boomerang-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "com.github.rloic.phd.boomerang.crypto.rijndael.boomerang.relatedkey.step1.Optimize_iterKt",
