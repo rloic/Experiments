@@ -4,12 +4,14 @@ Boomerang attack on Rijndael. Ignoring first and last round.
 Release notes:
 - For commit 8ed34b8436f980a555d8ba4b1ed6e30bddf08983
 Update presenters and fix wrong shiftrow when parsing step 1 solutions
-- For commeit b6ab396a8464ab819e3f42c9ed9d880959a98091
+- For commit b6ab396a8464ab819e3f42c9ed9d880959a98091
 Remove latex file generation
+- For commit 1bd9b59519f86b18c807ef4301d9e9d569b7f351
+Attack are done on rounds [1; Nr - 1[
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
-        commit: Some("b6ab396a8464ab819e3f42c9ed9d880959a98091"),
+        commit: Some("1bd9b59519f86b18c807ef4301d9e9d569b7f351"),
         sub_modules: true
     ),
     commands: (
