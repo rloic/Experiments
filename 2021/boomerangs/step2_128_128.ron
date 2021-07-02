@@ -1,0 +1,47 @@
+(
+    description: Some("
+Boomerang attack on Rijndael. Ignoring first and last round.
+Release notes:
+- For commit 8ed34b8436f980a555d8ba4b1ed6e30bddf08983
+  - Update presenters and fix wrong shiftrow when parsing step 1 solutions
+- For commit b6ab396a8464ab819e3f42c9ed9d880959a98091
+  - Remove latex file generation
+- For commit 1bd9b59519f86b18c807ef4301d9e9d569b7f351
+  - Attack are done on rounds [1; Nr - 1[
+- For commit 1551ecdedab5d1bd7221f1f798a02a0c83f8ba53
+  - Add trail tex ouput
+- For commit ef40ceaeba33bb69888947fd32cd6fe5e04ab76b
+  - Fix Rijndael Boomerangs presenters
+  - Fix EBCT rules for Step2
+- For commit 3cdee2ee4171f7a1f1de36161e65e86da10f769a
+  - Fix KeySchedule column activations
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
+        commit: Some("3cdee2ee4171f7a1f1de36161e65e86da10f769a"),
+        sub_modules: true
+    ),
+    commands: (
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=10 Step2OutFile=solutions/rijndael/step2/rk/{TextSize}-{KeySize}-{Nr}-{ObjStep2}.tex"
+    ),
+    shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "com.github.rloic.phd.boomerang.crypto.rijndael.boomerang.relatedkey.step2.OptimizeKt",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    outputs: Some((
+        delimiter: ", ",
+        columns: [
+            Some("Probability")
+        ]
+    )),
+    experiments: [
+        (name: "128-128-3", parameters: ["TextSize=128", "KeySize=128", "Nr=8", "ObjStep1=0" ])
+    ]
+)
