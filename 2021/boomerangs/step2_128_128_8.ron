@@ -15,15 +15,17 @@ Release notes:
   - Fix EBCT rules for Step2
 - For commit 3cdee2ee4171f7a1f1de36161e65e86da10f769a
   - Fix KeySchedule column activations
+- For commit a64239541d93e811daf995fe32850f1a270c541d
+  - Add customisable lower bound
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
-        commit: Some("3cdee2ee4171f7a1f1de36161e65e86da10f769a"),
+        commit: Some("a64239541d93e811daf995fe32850f1a270c541d"),
         sub_modules: true
     ),
     commands: (
         build: "{GRADLE} jar",
-        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=10 Step2OutFile=solutions/rijndael/step2/rk/{TextSize}-{KeySize}-{Nr}-{ObjStep2}.tex"
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=10 Step2OutFile=solutions/rijndael/step2/rk/{TextSize}-{KeySize}-{Nr}-{ObjStep2}.tex LowerBound=9999999"
     ),
     shortcuts: {
         "GRADLE": "gradle",
@@ -42,6 +44,6 @@ Release notes:
         ]
     )),
     experiments: [
-        (name: "128-128-3", parameters: ["TextSize=128", "KeySize=128", "Nr=8", "ObjStep1=0" ])
+        (name: "128-128-8", parameters: ["TextSize=128", "KeySize=128", "Nr=8", "ObjStep1=0" ])
     ]
 )
