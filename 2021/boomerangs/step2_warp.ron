@@ -1,0 +1,71 @@
+(
+    description: Some("
+Boomerang attack on Warp.
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/step2marine",
+        commit: Some("003b5bfea5c32845ccbfb27f5bc8935d5b3f2bb0"),
+        sub_modules: true
+    ),
+    commands: (
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100"
+    ),
+    shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/step2marine-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "App",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    outputs: Some((
+        delimiter: ", ",
+        columns: [
+            Some("Probability")
+        ]
+    )),
+    experiments: [
+        (name: "3", parameters: ["Nr=3"]),
+        (name: "4", parameters: ["Nr=4"]),
+        (name: "5", parameters: ["Nr=5"]),
+        (name: "6", parameters: ["Nr=6"]),
+        (name: "7", parameters: ["Nr=7"]),
+        (name: "8", parameters: ["Nr=8"]),
+        (name: "9", parameters: ["Nr=9"]),
+        (name: "10", parameters: ["Nr=10"]),
+        (name: "11", parameters: ["Nr=11"]),
+        (name: "12", parameters: ["Nr=12"]),
+        (name: "13", parameters: ["Nr=13"]),
+        (name: "14", parameters: ["Nr=14"]),
+        (name: "15", parameters: ["Nr=15"]),
+        (name: "16", parameters: ["Nr=16"]),
+        (name: "17", parameters: ["Nr=17"]),
+        (name: "18", parameters: ["Nr=18"]),
+        (name: "19", parameters: ["Nr=19"]),
+        (name: "20", parameters: ["Nr=20"]),
+        (name: "21", parameters: ["Nr=21"]),
+        (name: "22", parameters: ["Nr=22"]),
+        (name: "23", parameters: ["Nr=23"]),
+        (name: "24", parameters: ["Nr=24"]),
+        (name: "25", parameters: ["Nr=25"]),
+        (name: "26", parameters: ["Nr=26"]),
+        (name: "27", parameters: ["Nr=27"]),
+        (name: "28", parameters: ["Nr=28"]),
+        (name: "29", parameters: ["Nr=29"]),
+        (name: "30", parameters: ["Nr=30"]),
+        (name: "31", parameters: ["Nr=31"]),
+        (name: "32", parameters: ["Nr=32"]),
+        (name: "33", parameters: ["Nr=33"]),
+        (name: "34", parameters: ["Nr=34"]),
+        (name: "35", parameters: ["Nr=35"]),
+        (name: "36", parameters: ["Nr=36"]),
+        (name: "37", parameters: ["Nr=37"]),
+        (name: "38", parameters: ["Nr=38"]),
+        (name: "39", parameters: ["Nr=39"]),
+        (name: "40", parameters: ["Nr=40"]),
+        (name: "41", parameters: ["Nr=41"]),
+    ]
+)
