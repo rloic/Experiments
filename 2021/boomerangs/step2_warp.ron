@@ -1,10 +1,12 @@
 (
     description: Some("
 Boomerang attack on Warp.
+Note on version #e3261b9744a16f0004889216dda19e53caad1d1d
+- Fix Step2 parsing
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("003b5bfea5c32845ccbfb27f5bc8935d5b3f2bb0"),
+        commit: Some("fb23b5c531eb4e8058fdb9e052632a8d149623ef"),
         sub_modules: true
     ),
     commands: (
