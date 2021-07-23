@@ -3,10 +3,14 @@
 Boomerang attack on Warp.
 Note on version #e3261b9744a16f0004889216dda19e53caad1d1d
 - Fix Step2 parsing
+Note on version #1f7bd5671c022efd0aca42a80c37b91f4057e2bf
+- Create optimized version:
+  - Obj sum is simplified
+  - Quine-McCluskey is used to generate the constraints
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("fb23b5c531eb4e8058fdb9e052632a8d149623ef"),
+        commit: Some("1f7bd5671c022efd0aca42a80c37b91f4057e2bf"),
         sub_modules: true
     ),
     commands: (
