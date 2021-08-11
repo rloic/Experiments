@@ -1,18 +1,25 @@
 (
     description: Some("
-Boomerang attack on Warp.
-Note on version #e3261b9744a16f0004889216dda19e53caad1d1d
+# Boomerang attack on Warp.
+
+This experiment computes Step1 and Step2. If Step1Opt is not specified, compute Step1Opt before Step1 and Step2.
+**This experiment ignores from round 21 to 41 since we don't have Step1Opt in less than one week.**
+
+## Version notes
+Note on version `#e3261b9744a16f0004889216dda19e53caad1d1d`
 - Fix Step2 parsing
-Note on version #1f7bd5671c022efd0aca42a80c37b91f4057e2bf
+Note on version `#1f7bd5671c022efd0aca42a80c37b91f4057e2bf`
 - Create optimized version:
   - Obj sum is simplified
   - Quine-McCluskey is used to generate the constraints
-Note on version #e218ed39e6eebb3c545b448d16223bde044cbfdd
+Note on version `#e218ed39e6eebb3c545b448d16223bde044cbfdd`
   - Add gurobi solver
+Note on version `#17f9d69c5f0e5f396aa51db96cdd4886129b6a8a`
+  - Change outputs
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("e218ed39e6eebb3c545b448d16223bde044cbfdd"),
+        commit: Some("17f9d69c5f0e5f396aa51db96cdd4886129b6a8a"),
         sub_modules: true
     ),
     zip_with: [
@@ -21,7 +28,7 @@ Note on version #e218ed39e6eebb3c545b448d16223bde044cbfdd
     commands: (
         clean: "rm -rf solutions",
         build: "{GRADLE} jar",
-        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} NbThreads=6 Logger.level=ALL"
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL"
     ),
     shortcuts: {
         "GRADLE": "gradle",
@@ -31,35 +38,38 @@ Note on version #e218ed39e6eebb3c545b448d16223bde044cbfdd
         "MAIN_CLASS": "App",
         "MINIZINC": "!The path to minizinc",
         "PICAT": "!The path to picat",
-        "SOLVER": "Gurobi",
+        "SOLVER": "Picat",
         "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
     },
     outputs: Some((
-        delimiter: ", ",
+        delimiter: "\t",
         columns: [
+            Some("Step 1 Opt Time"),
+            Some("Step 1 Enum Time"),
+            Some("Step 2 Opt Time"),
             Some("Probability")
         ]
     )),
     experiments: [
-        (name: "3", parameters: ["Nr=3"]),
-        (name: "4", parameters: ["Nr=4"]),
-        (name: "5", parameters: ["Nr=5"]),
-        (name: "6", parameters: ["Nr=6"]),
-        (name: "7", parameters: ["Nr=7"]),
-        (name: "8", parameters: ["Nr=8"]),
-        (name: "9", parameters: ["Nr=9"]),
-        (name: "10", parameters: ["Nr=10"]),
-        (name: "11", parameters: ["Nr=11"]),
-        (name: "12", parameters: ["Nr=12"]),
-        (name: "13", parameters: ["Nr=13"]),
-        (name: "14", parameters: ["Nr=14"]),
-        (name: "15", parameters: ["Nr=15"]),
-        (name: "16", parameters: ["Nr=16"]),
-        (name: "17", parameters: ["Nr=17"]),
-        (name: "18", parameters: ["Nr=18"]),
-        (name: "19", parameters: ["Nr=19"]),
-        (name: "20", parameters: ["Nr=20"]),
-        (name: "21", parameters: ["Nr=21"]),
+        (name: "3", parameters: ["Nr=3", "ObjStep1=0"]),
+        (name: "4", parameters: ["Nr=4", "ObjStep1=0"]),
+        (name: "5", parameters: ["Nr=5", "ObjStep1=0"]),
+        (name: "6", parameters: ["Nr=6", "ObjStep1=0"]),
+        (name: "7", parameters: ["Nr=7", "ObjStep1=0"]),
+        (name: "8", parameters: ["Nr=8", "ObjStep1=0"]),
+        (name: "9", parameters: ["Nr=9", "ObjStep1=0"]),
+        (name: "10", parameters: ["Nr=10", "ObjStep1=2"]),
+        (name: "11", parameters: ["Nr=11", "ObjStep1=4"]),
+        (name: "12", parameters: ["Nr=12", "ObjStep1=8"]),
+        (name: "13", parameters: ["Nr=13", "ObjStep1=12"]),
+        (name: "14", parameters: ["Nr=14", "ObjStep1=20"]),
+        (name: "15", parameters: ["Nr=15", "ObjStep1=28"]),
+        (name: "16", parameters: ["Nr=16", "ObjStep1=38"]),
+        (name: "17", parameters: ["Nr=17", "ObjStep1=46"]),
+        (name: "18", parameters: ["Nr=18", "ObjStep1=58"]),
+        (name: "19", parameters: ["Nr=19", "ObjStep1=70"]),
+        (name: "20", parameters: ["Nr=20", "ObjStep1=84"]),
+        /* (name: "21", parameters: ["Nr=21"]),
         (name: "22", parameters: ["Nr=22"]),
         (name: "23", parameters: ["Nr=23"]),
         (name: "24", parameters: ["Nr=24"]),
@@ -79,6 +89,6 @@ Note on version #e218ed39e6eebb3c545b448d16223bde044cbfdd
         (name: "38", parameters: ["Nr=38"]),
         (name: "39", parameters: ["Nr=39"]),
         (name: "40", parameters: ["Nr=40"]),
-        (name: "41", parameters: ["Nr=41"]),
+        (name: "41", parameters: ["Nr=41"]), */
     ]
 )
