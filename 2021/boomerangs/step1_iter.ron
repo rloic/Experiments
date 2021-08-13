@@ -1,17 +1,20 @@
 (
     description: Some("
-Boomerang attack on Rijndael. Ignoring first and last round.
-Release notes:
-- For commit 8ed34b8436f980a555d8ba4b1ed6e30bddf08983
-Update presenters and fix wrong shiftrow when parsing step 1 solutions
-- For commit b6ab396a8464ab819e3f42c9ed9d880959a98091
-Remove latex file generation
-- For commit 1bd9b59519f86b18c807ef4301d9e9d569b7f351
-Attack are done on rounds [1; Nr - 1[
+# Boomerang attack on Rijndael.
+
+# Release notes:
+- For commit `8ed34b8436f980a555d8ba4b1ed6e30bddf08983`
+  - Update presenters and fix wrong shiftrow when parsing step 1 solutions
+- For commit `b6ab396a8464ab819e3f42c9ed9d880959a98091`
+  - Remove latex file generation
+- For commit `1bd9b59519f86b18c807ef4301d9e9d569b7f351`
+  - **Attack are done on rounds [1; Nr - 1[**
+- For commit `7d417fbef5800d554b6dd7c311beb4055d960650`
+  - Nothing special. I do not add the constraint for the sub-rounds beccause the attack is done on [1; Nr - 1[ rounds and this complexify the constraint addition.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
-        commit: Some("1bd9b59519f86b18c807ef4301d9e9d569b7f351"),
+        commit: Some("7d417fbef5800d554b6dd7c311beb4055d960650"),
         sub_modules: true
     ),
     commands: (
@@ -46,180 +49,30 @@ Attack are done on rounds [1; Nr - 1[
         ]
     )),
     experiments: [
-        (
-            name: "128-128",
-            parameters: [
-                "TextSize=128",
-                "KeySize=128",
-            ]
-        ),
-        (
-            name: "128-160",
-            parameters: [
-                "TextSize=128",
-                "KeySize=160",
-            ]
-        ),
-        (
-            name: "128-192",
-            parameters: [
-                "TextSize=128",
-                "KeySize=192",
-            ]
-        ),
-        (
-            name: "128-224",
-            parameters: [
-                "TextSize=128",
-                "KeySize=224",
-            ]
-        ),
-        (
-            name: "128-256",
-            parameters: [
-                "TextSize=128",
-                "KeySize=256",
-            ]
-        ),
-        (
-            name: "160-128",
-            parameters: [
-                "TextSize=160",
-                "KeySize=128",
-            ]
-        ),
-        (
-            name: "160-160",
-            parameters: [
-                "TextSize=160",
-                "KeySize=160",
-            ]
-        ),
-        (
-            name: "160-192",
-            parameters: [
-                "TextSize=160",
-                "KeySize=192",
-            ]
-        ),
-        (
-            name: "160-224",
-            parameters: [
-                "TextSize=160",
-                "KeySize=224",
-            ]
-        ),
-        (
-            name: "160-256",
-            parameters: [
-                "TextSize=160",
-                "KeySize=256",
-            ]
-        ),
-        (
-            name: "192-128",
-            parameters: [
-                "TextSize=192",
-                "KeySize=128",
-            ]
-        ),
-        (
-            name: "192-160",
-            parameters: [
-                "TextSize=192",
-                "KeySize=160",
-            ]
-        ),
-        (
-            name: "192-192",
-            parameters: [
-                "TextSize=192",
-                "KeySize=192",
-            ]
-        ),
-        (
-            name: "192-224",
-            parameters: [
-                "TextSize=192",
-                "KeySize=224",
-            ]
-        ),
-        (
-            name: "192-256",
-            parameters: [
-                "TextSize=192",
-                "KeySize=256",
-            ]
-        ),
-        (
-            name: "224-128",
-            parameters: [
-                "TextSize=224",
-                "KeySize=128",
-            ]
-        ),
-        (
-            name: "224-160",
-            parameters: [
-                "TextSize=224",
-                "KeySize=160",
-            ]
-        ),
-        (
-            name: "224-192",
-            parameters: [
-                "TextSize=224",
-                "KeySize=192",
-            ]
-        ),
-        (
-            name: "224-224",
-            parameters: [
-                "TextSize=224",
-                "KeySize=224",
-            ]
-        ),
-        (
-            name: "224-256",
-            parameters: [
-                "TextSize=224",
-                "KeySize=256",
-            ]
-        ),
-        (
-            name: "256-128",
-            parameters: [
-                "TextSize=256",
-                "KeySize=128",
-            ]
-        ),
-        (
-            name: "256-160",
-            parameters: [
-                "TextSize=256",
-                "KeySize=160",
-            ]
-        ),
-        (
-            name: "256-192",
-            parameters: [
-                "TextSize=256",
-                "KeySize=192",
-            ]
-        ),
-        (
-            name: "256-224",
-            parameters: [
-                "TextSize=256",
-                "KeySize=224",
-            ]
-        ),
-        (
-            name: "256-256",
-            parameters: [
-                "TextSize=256",
-                "KeySize=256",
-            ]
-        )
+        (name: "128-128", parameters: ["TextSize=128", "KeySize=128"]),
+        (name: "128-160", parameters: ["TextSize=128", "KeySize=160"]),
+        (name: "128-192", parameters: ["TextSize=128", "KeySize=192"]),
+        (name: "128-224", parameters: ["TextSize=128", "KeySize=224"]),
+        (name: "128-256", parameters: ["TextSize=128", "KeySize=256"]),
+        (name: "160-128", parameters: ["TextSize=160", "KeySize=128"]),
+        (name: "160-160", parameters: ["TextSize=160", "KeySize=160"]),
+        (name: "160-192", parameters: ["TextSize=160", "KeySize=192"]),
+        (name: "160-224", parameters: ["TextSize=160", "KeySize=224"]),
+        (name: "160-256", parameters: ["TextSize=160", "KeySize=256"]),
+        (name: "192-128", parameters: ["TextSize=192", "KeySize=128"]),
+        (name: "192-160", parameters: ["TextSize=192", "KeySize=160"]),
+        (name: "192-192", parameters: ["TextSize=192", "KeySize=192"]),
+        (name: "192-224", parameters: ["TextSize=192", "KeySize=224"]),
+        (name: "192-256", parameters: ["TextSize=192", "KeySize=256"]),
+        (name: "224-128", parameters: ["TextSize=224", "KeySize=128"]),
+        (name: "224-160", parameters: ["TextSize=224", "KeySize=160"]),
+        (name: "224-192", parameters: ["TextSize=224", "KeySize=192"]),
+        (name: "224-224", parameters: ["TextSize=224", "KeySize=224"]),
+        (name: "224-256", parameters: ["TextSize=224", "KeySize=256"]),
+        (name: "256-128", parameters: ["TextSize=256", "KeySize=128"]),
+        (name: "256-160", parameters: ["TextSize=256", "KeySize=160"]),
+        (name: "256-192", parameters: ["TextSize=256", "KeySize=192"]),
+        (name: "256-224", parameters: ["TextSize=256", "KeySize=224"]),
+        (name: "256-256", parameters: ["TextSize=256", "KeySize=256"]),
     ]
 )
