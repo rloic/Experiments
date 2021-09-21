@@ -11,15 +11,19 @@
   - **Attack are done on rounds [1; Nr - 1[**
 - For commit `7d417fbef5800d554b6dd7c311beb4055d960650`
   - Nothing special. I do not add the constraint for the sub-rounds beccause the attack is done on [1; Nr - 1[ rounds and this complexify the constraint addition.
+- For commit `5ae7f729edf4a6208d4e4d985d4ca276a6a3a5f8`
+  - Add informations for attack I, II and III of Dong, Xiaoyang, Lingyue Qin, Siwei Sun, et Xiaoyun Wang. « Key Guessing Strategies for Linear Key-Schedule Algorithms in Rectangle Attacks », s. d., 66. in step 1 model to filter valid distinguished that cannot be converted into a valid attack. **For now the constraint addition is unstable and can only be used to AES-128**.
+- For commit `fbf8291820e08b8ee9317e70d0c9856524d62515`
+  - Update constraints for Attack I, II and III for Step 2. 
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/boomerang-skinny.git",
-        commit: Some("7d417fbef5800d554b6dd7c311beb4055d960650"),
+        commit: Some("fbf8291820e08b8ee9317e70d0c9856524d62515"),
         sub_modules: true
     ),
     commands: (
         build: "{GRADLE} jar",
-        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN}"
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Logger.level={LOGGER_LEVEL} Logger.scriptMode=true"
     ),
     shortcuts: {
         "GRADLE": "gradle",
@@ -27,6 +31,7 @@
         "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
         "JAR_PATH": "build/libs/boomerang-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "com.github.rloic.phd.boomerang.crypto.rijndael.boomerang.relatedkey.step1.Optimize_iterKt",
+        "LOGGER_LEVEL": "ALL",
         "MINIZINC": "!The path to minizinc",
         "PICAT": "!The path to picat",
         "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
@@ -50,10 +55,11 @@
     )),
     experiments: [
         (name: "128-128", parameters: ["TextSize=128", "KeySize=128"]),
-        (name: "128-160", parameters: ["TextSize=128", "KeySize=160"]),
+        (name: "128-192", parameters: ["TextSize=128", "KeySize=192"]),
+        (name: "128-256", parameters: ["TextSize=128", "KeySize=256"]),
+      /* (name: "128-160", parameters: ["TextSize=128", "KeySize=160"]),
         (name: "128-192", parameters: ["TextSize=128", "KeySize=192"]),
         (name: "128-224", parameters: ["TextSize=128", "KeySize=224"]),
-        (name: "128-256", parameters: ["TextSize=128", "KeySize=256"]),
         (name: "160-128", parameters: ["TextSize=160", "KeySize=128"]),
         (name: "160-160", parameters: ["TextSize=160", "KeySize=160"]),
         (name: "160-192", parameters: ["TextSize=160", "KeySize=192"]),
@@ -73,6 +79,6 @@
         (name: "256-160", parameters: ["TextSize=256", "KeySize=160"]),
         (name: "256-192", parameters: ["TextSize=256", "KeySize=192"]),
         (name: "256-224", parameters: ["TextSize=256", "KeySize=224"]),
-        (name: "256-256", parameters: ["TextSize=256", "KeySize=256"]),
+        (name: "256-256", parameters: ["TextSize=256", "KeySize=256"]), */
     ]
 )
