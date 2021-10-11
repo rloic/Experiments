@@ -1,0 +1,99 @@
+(
+    description: Some("
+# Boomerang attack on Warp.
+
+This experiment computes Step1 and Step2. If Step1Opt is not specified, compute Step1Opt before Step1 and Step2.
+**This experiment ignores from round 23 to 41 since we don't have Step1Opt in less than one week.**
+**Add pattern 11011 for all instances Nr >= 15. We are sure that this pattern occurs for all instances where 15 <= rounds <= 20. Since we cannot compute instances where Nr > 20 without this pattern we cannot guarantee that this pattern is also present in the optimal solution for Nr > 20**
+
+## Version notes
+Note on version `#e3261b9744a16f0004889216dda19e53caad1d1d`
+- Fix Step2 parsing
+Note on version `#1f7bd5671c022efd0aca42a80c37b91f4057e2bf`
+- Create optimized version:
+  - Obj sum is simplified
+  - Quine-McCluskey is used to generate the constraints
+Note on version `#e218ed39e6eebb3c545b448d16223bde044cbfdd`
+  - Add gurobi solver
+Note on version `#17f9d69c5f0e5f396aa51db96cdd4886129b6a8a`
+  - Change outputs
+Note on version `#01c2ee0f33aa339b710c48252734f892081e88e4`
+  - Add a pattern to force the solution to have five consecutive rounds with 1,1,0,1,1 active S-box. We have observed that this pattern occurs for all the solution with 15 <= rounds <= 20, so we have added this constraint for all instances where Nr >= 15 to speed up the resolution process. As a consequence the optimality is not guarantee for the instances where Nr > 20.
+Note on version `#0c29440e795a6e7d74329a40fbbab7f2ea435709`
+  - Add Step3 for Warp.
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/step2marine",
+        commit: Some("0c29440e795a6e7d74329a40fbbab7f2ea435709"),
+        sub_modules: true
+    ),
+    zip_with: [
+        "{SOURCES}/solutions"
+    ],
+    commands: (
+        clean: "rm -rf solutions",
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=5 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL Logger.scriptMode=true"
+    ),
+    shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "warp.AppWithStep3",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "SOLVER": "Picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    outputs: Some((
+        delimiter: "\t",
+        columns: [
+            Some("Step 1 Opt Time"),
+            Some("Step 1 Enum Time"),
+            Some("Step 2 Opt Time"),
+            Some("Time complexity")
+        ]
+    )),
+    experiments: [
+        (name: "3", parameters: ["Nr=3",   "Eb=1", "Ed=1",  "Ef=1"]),
+        (name: "4", parameters: ["Nr=4",   "Eb=1", "Ed=1",  "Ef=2"]),
+        (name: "5", parameters: ["Nr=5",   "Eb=1", "Ed=1",  "Ef=3"]),
+        (name: "6", parameters: ["Nr=6",   "Eb=1", "Ed=1",  "Ef=4"]),
+        (name: "7", parameters: ["Nr=7",   "Eb=1", "Ed=2",  "Ef=4"]),
+        (name: "8", parameters: ["Nr=8",   "Eb=1", "Ed=3",  "Ef=4"]),
+        (name: "9", parameters: ["Nr=9",   "Eb=1", "Ed=4",  "Ef=4"]),
+        (name: "10", parameters: ["Nr=10", "Eb=1", "Ed=5",  "Ef=4"]),
+        (name: "11", parameters: ["Nr=11", "Eb=1", "Ed=6",  "Ef=4"]),
+        (name: "12", parameters: ["Nr=12", "Eb=1", "Ed=7",  "Ef=4"]),
+        (name: "13", parameters: ["Nr=13", "Eb=1", "Ed=8",  "Ef=4"]),
+        (name: "14", parameters: ["Nr=14", "Eb=1", "Ed=9",  "Ef=4"]),
+        (name: "15", parameters: ["Nr=15", "Eb=1", "Ed=10", "Ef=4"]),
+        (name: "16", parameters: ["Nr=16", "Eb=1", "Ed=11", "Ef=4"]),
+        (name: "17", parameters: ["Nr=17", "Eb=1", "Ed=12", "Ef=4"]),
+        (name: "18", parameters: ["Nr=18", "Eb=1", "Ed=13", "Ef=4"]),
+        (name: "19", parameters: ["Nr=19", "Eb=1", "Ed=14", "Ef=4"]),
+        (name: "20", parameters: ["Nr=20", "Eb=1", "Ed=15", "Ef=4"]),
+        (name: "21", parameters: ["Nr=21", "Eb=1", "Ed=16", "Ef=4"]),
+        (name: "22", parameters: ["Nr=22", "Eb=1", "Ed=17", "Ef=4"]),
+        (name: "23", parameters: ["Nr=23", "Eb=1", "Ed=18", "Ef=4"]),
+        (name: "24", parameters: ["Nr=24", "Eb=1", "Ed=19", "Ef=4"]),
+        (name: "25", parameters: ["Nr=25", "Eb=1", "Ed=20", "Ef=4"]),
+    /*  (name: "26", parameters: ["Nr=26"]),
+        (name: "27", parameters: ["Nr=27"]),
+        (name: "28", parameters: ["Nr=28"]),
+        (name: "29", parameters: ["Nr=29"]),
+        (name: "30", parameters: ["Nr=30"]),
+        (name: "31", parameters: ["Nr=31"]),
+        (name: "32", parameters: ["Nr=32"]),
+        (name: "33", parameters: ["Nr=33"]),
+        (name: "34", parameters: ["Nr=34"]),
+        (name: "35", parameters: ["Nr=35"]),
+        (name: "36", parameters: ["Nr=36"]),
+        (name: "37", parameters: ["Nr=37"]),
+        (name: "38", parameters: ["Nr=38"]),
+        (name: "39", parameters: ["Nr=39"]),
+        (name: "40", parameters: ["Nr=40"]),
+        (name: "41", parameters: ["Nr=41"]), */
+    ]
+)
