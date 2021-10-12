@@ -21,10 +21,19 @@ Note on version `#01c2ee0f33aa339b710c48252734f892081e88e4`
   - Add a pattern to force the solution to have five consecutive rounds with 1,1,0,1,1 active S-box. We have observed that this pattern occurs for all the solution with 15 <= rounds <= 20, so we have added this constraint for all instances where Nr >= 15 to speed up the resolution process. As a consequence the optimality is not guarantee for the instances where Nr > 20.
 Note on version `#0c29440e795a6e7d74329a40fbbab7f2ea435709`
   - Add Step3 for Warp.
+Note on version `#3be949aa864ca56d55187e085ba2fc4d7cb5f3f5`
+  - Since we can compute some of the nibbles in Nr - 1, we now define rf = 4 * count(DXlower[Nr - 1]). It's due to the fact that the key is xored after the usage of the SBox, hence the nibble in odd positions can be determinstically computed with the cipher text in some case.
+[X]         [ ]
+ |           |
+ +--[ S ]----+
+ |           |
+[X]         [X]
+Note on version `#7313d0014957104950833490b2a6b0049bd36cb6`
+  - We add a margin to t2 to include the possible clustering improvement when computing the time complexity, hence t2 becomes t2 = obj - 14. Where 14 represents an arbitratry cluster size.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("0c29440e795a6e7d74329a40fbbab7f2ea435709"),
+        commit: Some("7313d0014957104950833490b2a6b0049bd36cb6"),
         sub_modules: true
     ),
     zip_with: [
