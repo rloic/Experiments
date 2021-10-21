@@ -30,10 +30,12 @@ Note on version `#3be949aa864ca56d55187e085ba2fc4d7cb5f3f5`
 [X]         [X]
 Note on version `#7313d0014957104950833490b2a6b0049bd36cb6`
   - We add a margin to t2 to include the possible clustering improvement when computing the time complexity, hence t2 becomes t2 = obj - 14. Where 14 represents an arbitratry cluster size.
+Note on version `#1f9099db57a3864136c8beb9891bd07a43ad197c`
+  - Add a cluster size approximation to compute the Step 3 complexity. This allow to take the cluster size into account.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("7313d0014957104950833490b2a6b0049bd36cb6"),
+        commit: Some("1f9099db57a3864136c8beb9891bd07a43ad197c"),
         sub_modules: true
     ),
     zip_with: [
@@ -42,7 +44,7 @@ Note on version `#7313d0014957104950833490b2a6b0049bd36cb6`
     commands: (
         clean: "rm -rf solutions",
         build: "{GRADLE} jar",
-        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=5 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL Logger.scriptMode=true"
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=5 ClusterSizeApprox={CLUSTER_SIZE_APPROX} SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL Logger.scriptMode=true"
     ),
     shortcuts: {
         "GRADLE": "gradle",
@@ -50,6 +52,7 @@ Note on version `#7313d0014957104950833490b2a6b0049bd36cb6`
         "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
         "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "warp.AppWithStep3",
+        "CLUSTER_SIZE_APPROX": "20",
         "MINIZINC": "!The path to minizinc",
         "PICAT": "!The path to picat",
         "SOLVER": "Picat",
@@ -88,6 +91,9 @@ Note on version `#7313d0014957104950833490b2a6b0049bd36cb6`
         (name: "23", parameters: ["Nr=23", "Eb=1", "Ed=18", "Ef=4"]),
         (name: "24", parameters: ["Nr=24", "Eb=1", "Ed=19", "Ef=4"]),
         (name: "25", parameters: ["Nr=25", "Eb=1", "Ed=20", "Ef=4"]),
+        (name: "23-2", parameters: ["Nr=23", "Eb=1", "Ed=20", "Ef=2"]),
+        (name: "24-2", parameters: ["Nr=24", "Eb=1", "Ed=21", "Ef=2"]),
+        (name: "25-2", parameters: ["Nr=25", "Eb=1", "Ed=22", "Ef=2"]),
     /*  (name: "26", parameters: ["Nr=26"]),
         (name: "27", parameters: ["Nr=27"]),
         (name: "28", parameters: ["Nr=28"]),
