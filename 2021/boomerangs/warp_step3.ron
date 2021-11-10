@@ -38,10 +38,12 @@ Note on version `#d57d2b775f3bfaa2405d2515b4f7500aad56a840`
   - Fix rf computation + add information for upper and lower trail (extracted for minimal number of S-Boxes in single-key differential)
 Note on version `#dc23bbe094da460bd66ab284057e348fc3a65c8e`
   - Some minor changes + change search heuristic for Step 1 Opt.
+Note on version `#92cd1893d2207dd8038ead7199af69a6cec29ffb`
+  - Upgrade some constants to take into account |Eb| / (|Eb| + |Ed| + |Ef|)
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("dc23bbe094da460bd66ab284057e348fc3a65c8e"),
+        commit: Some("92cd1893d2207dd8038ead7199af69a6cec29ffb"),
         sub_modules: true
     ),
     zip_with: [
