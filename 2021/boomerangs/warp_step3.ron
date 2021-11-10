@@ -32,10 +32,16 @@ Note on version `#7313d0014957104950833490b2a6b0049bd36cb6`
   - We add a margin to t2 to include the possible clustering improvement when computing the time complexity, hence t2 becomes t2 = obj - 14. Where 14 represents an arbitratry cluster size.
 Note on version `#1f9099db57a3864136c8beb9891bd07a43ad197c`
   - Add a cluster size approximation to compute the Step 3 complexity. This allow to take the cluster size into account.
+Note on version `#c719c9b9b45489f934ae5d734af647c6af2dc8ca`
+  - Add two mode for clusters computation {Differential, Attack}
+Note on version `#d57d2b775f3bfaa2405d2515b4f7500aad56a840`
+  - Fix rf computation + add information for upper and lower trail (extracted for minimal number of S-Boxes in single-key differential)
+Note on version `#dc23bbe094da460bd66ab284057e348fc3a65c8e`
+  - Some minor changes + change search heuristic for Step 1 Opt.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("1f9099db57a3864136c8beb9891bd07a43ad197c"),
+        commit: Some("dc23bbe094da460bd66ab284057e348fc3a65c8e"),
         sub_modules: true
     ),
     zip_with: [
@@ -44,7 +50,7 @@ Note on version `#1f9099db57a3864136c8beb9891bd07a43ad197c`
     commands: (
         clean: "rm -rf solutions",
         build: "{GRADLE} jar",
-        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=5 ClusterSizeApprox={CLUSTER_SIZE_APPROX} SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL Logger.scriptMode=true"
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=5 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL Logger.scriptMode=true"
     ),
     shortcuts: {
         "GRADLE": "gradle",
@@ -52,7 +58,6 @@ Note on version `#1f9099db57a3864136c8beb9891bd07a43ad197c`
         "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
         "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "warp.AppWithStep3",
-        "CLUSTER_SIZE_APPROX": "20",
         "MINIZINC": "!The path to minizinc",
         "PICAT": "!The path to picat",
         "SOLVER": "Picat",
@@ -68,47 +73,41 @@ Note on version `#1f9099db57a3864136c8beb9891bd07a43ad197c`
         ]
     )),
     experiments: [
-        (name: "3", parameters: ["Nr=3",   "Eb=1", "Ed=1",  "Ef=1"]),
-        (name: "4", parameters: ["Nr=4",   "Eb=1", "Ed=1",  "Ef=2"]),
-        (name: "5", parameters: ["Nr=5",   "Eb=1", "Ed=1",  "Ef=3"]),
-        (name: "6", parameters: ["Nr=6",   "Eb=1", "Ed=1",  "Ef=4"]),
-        (name: "7", parameters: ["Nr=7",   "Eb=1", "Ed=2",  "Ef=4"]),
-        (name: "8", parameters: ["Nr=8",   "Eb=1", "Ed=3",  "Ef=4"]),
-        (name: "9", parameters: ["Nr=9",   "Eb=1", "Ed=4",  "Ef=4"]),
-        (name: "10", parameters: ["Nr=10", "Eb=1", "Ed=5",  "Ef=4"]),
-        (name: "11", parameters: ["Nr=11", "Eb=1", "Ed=6",  "Ef=4"]),
-        (name: "12", parameters: ["Nr=12", "Eb=1", "Ed=7",  "Ef=4"]),
-        (name: "13", parameters: ["Nr=13", "Eb=1", "Ed=8",  "Ef=4"]),
-        (name: "14", parameters: ["Nr=14", "Eb=1", "Ed=9",  "Ef=4"]),
-        (name: "15", parameters: ["Nr=15", "Eb=1", "Ed=10", "Ef=4"]),
-        (name: "16", parameters: ["Nr=16", "Eb=1", "Ed=11", "Ef=4"]),
-        (name: "17", parameters: ["Nr=17", "Eb=1", "Ed=12", "Ef=4"]),
-        (name: "18", parameters: ["Nr=18", "Eb=1", "Ed=13", "Ef=4"]),
-        (name: "19", parameters: ["Nr=19", "Eb=1", "Ed=14", "Ef=4"]),
-        (name: "20", parameters: ["Nr=20", "Eb=1", "Ed=15", "Ef=4"]),
-        (name: "21", parameters: ["Nr=21", "Eb=1", "Ed=16", "Ef=4"]),
-        (name: "22", parameters: ["Nr=22", "Eb=1", "Ed=17", "Ef=4"]),
-        (name: "23", parameters: ["Nr=23", "Eb=1", "Ed=18", "Ef=4"]),
-        (name: "24", parameters: ["Nr=24", "Eb=1", "Ed=19", "Ef=4"]),
-        (name: "25", parameters: ["Nr=25", "Eb=1", "Ed=20", "Ef=4"]),
-        (name: "23-2", parameters: ["Nr=23", "Eb=1", "Ed=20", "Ef=2"]),
-        (name: "24-2", parameters: ["Nr=24", "Eb=1", "Ed=21", "Ef=2"]),
-        (name: "25-2", parameters: ["Nr=25", "Eb=1", "Ed=22", "Ef=2"]),
-    /*  (name: "26", parameters: ["Nr=26"]),
-        (name: "27", parameters: ["Nr=27"]),
-        (name: "28", parameters: ["Nr=28"]),
-        (name: "29", parameters: ["Nr=29"]),
-        (name: "30", parameters: ["Nr=30"]),
-        (name: "31", parameters: ["Nr=31"]),
-        (name: "32", parameters: ["Nr=32"]),
-        (name: "33", parameters: ["Nr=33"]),
-        (name: "34", parameters: ["Nr=34"]),
-        (name: "35", parameters: ["Nr=35"]),
-        (name: "36", parameters: ["Nr=36"]),
-        (name: "37", parameters: ["Nr=37"]),
-        (name: "38", parameters: ["Nr=38"]),
-        (name: "39", parameters: ["Nr=39"]),
-        (name: "40", parameters: ["Nr=40"]),
-        (name: "41", parameters: ["Nr=41"]), */
+        (name: "3", parameters: ["Nr=3",   "Eb=1", "Ed=1",  "Ef=1", "ClusterSizeApprox=0"]),
+        (name: "4", parameters: ["Nr=4",   "Eb=1", "Ed=1",  "Ef=2", "ClusterSizeApprox=0"]),
+        (name: "5", parameters: ["Nr=5",   "Eb=1", "Ed=1",  "Ef=3", "ClusterSizeApprox=0"]),
+        (name: "6", parameters: ["Nr=6",   "Eb=1", "Ed=1",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "7", parameters: ["Nr=7",   "Eb=1", "Ed=2",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "8", parameters: ["Nr=8",   "Eb=1", "Ed=3",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "9", parameters: ["Nr=9",   "Eb=1", "Ed=4",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "10", parameters: ["Nr=10", "Eb=1", "Ed=5",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "11", parameters: ["Nr=11", "Eb=1", "Ed=6",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "12", parameters: ["Nr=12", "Eb=1", "Ed=7",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "13", parameters: ["Nr=13", "Eb=1", "Ed=8",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "14", parameters: ["Nr=14", "Eb=1", "Ed=9",  "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "15", parameters: ["Nr=15", "Eb=1", "Ed=10", "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "16", parameters: ["Nr=16", "Eb=1", "Ed=11", "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "17", parameters: ["Nr=17", "Eb=1", "Ed=12", "Ef=4", "ClusterSizeApprox=0"]),
+        (name: "18", parameters: ["Nr=18", "Eb=1", "Ed=13", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "19", parameters: ["Nr=19", "Eb=1", "Ed=14", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "20", parameters: ["Nr=20", "Eb=1", "Ed=15", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "21", parameters: ["Nr=21", "Eb=1", "Ed=16", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "22", parameters: ["Nr=22", "Eb=1", "Ed=17", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "23-1", parameters: ["Nr=23", "Eb=1", "Ed=22", "Ef=1", "ClusterSizeApprox=24"]),
+        (name: "24-1", parameters: ["Nr=24", "Eb=1", "Ed=23", "Ef=1", "ClusterSizeApprox=24"]),
+        (name: "25-1", parameters: ["Nr=25", "Eb=1", "Ed=24", "Ef=1", "ClusterSizeApprox=24"]),
+        (name: "26-1", parameters: ["Nr=25", "Eb=1", "Ed=25", "Ef=1", "ClusterSizeApprox=24"]),
+        (name: "23-2", parameters: ["Nr=23", "Eb=1", "Ed=20", "Ef=2", "ClusterSizeApprox=24"]),
+        (name: "24-2", parameters: ["Nr=24", "Eb=1", "Ed=21", "Ef=2", "ClusterSizeApprox=24"]),
+        (name: "25-2", parameters: ["Nr=25", "Eb=1", "Ed=22", "Ef=2", "ClusterSizeApprox=24"]),
+        (name: "26-2", parameters: ["Nr=25", "Eb=1", "Ed=23", "Ef=2", "ClusterSizeApprox=24"]),
+        (name: "23-3", parameters: ["Nr=23", "Eb=1", "Ed=19", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "24-3", parameters: ["Nr=24", "Eb=1", "Ed=20", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "25-3", parameters: ["Nr=25", "Eb=1", "Ed=21", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "26-3", parameters: ["Nr=25", "Eb=1", "Ed=22", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "23-4", parameters: ["Nr=23", "Eb=1", "Ed=18", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "24-4", parameters: ["Nr=24", "Eb=1", "Ed=19", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "25-4", parameters: ["Nr=25", "Eb=1", "Ed=20", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "26-4", parameters: ["Nr=25", "Eb=1", "Ed=21", "Ef=4", "ClusterSizeApprox=24"]),
     ]
 )
