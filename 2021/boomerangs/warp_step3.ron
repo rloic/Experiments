@@ -40,10 +40,12 @@ Note on version `#dc23bbe094da460bd66ab284057e348fc3a65c8e`
   - Some minor changes + change search heuristic for Step 1 Opt.
 Note on version `#92cd1893d2207dd8038ead7199af69a6cec29ffb`
   - Upgrade some constants to take into account |Eb| / (|Eb| + |Ed| + |Ef|)
+Note on version `#1745648996b263538b0463c13565a61a7b8a22ef`
+  - Fix data complexity formula
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("92cd1893d2207dd8038ead7199af69a6cec29ffb"),
+        commit: Some("1745648996b263538b0463c13565a61a7b8a22ef"),
         sub_modules: true
     ),
     zip_with: [
@@ -99,17 +101,31 @@ Note on version `#92cd1893d2207dd8038ead7199af69a6cec29ffb`
         (name: "24-1", parameters: ["Nr=24", "Eb=1", "Ed=22", "Ef=1", "ClusterSizeApprox=24"]),
         (name: "25-1", parameters: ["Nr=25", "Eb=1", "Ed=23", "Ef=1", "ClusterSizeApprox=24"]),
         (name: "26-1", parameters: ["Nr=26", "Eb=1", "Ed=24", "Ef=1", "ClusterSizeApprox=24"]),
+        (name: "27-1", parameters: ["Nr=27", "Eb=1", "Ed=25", "Ef=1", "ClusterSizeApprox=24"]),
         (name: "23-2", parameters: ["Nr=23", "Eb=1", "Ed=20", "Ef=2", "ClusterSizeApprox=24"]),
         (name: "24-2", parameters: ["Nr=24", "Eb=1", "Ed=21", "Ef=2", "ClusterSizeApprox=24"]),
         (name: "25-2", parameters: ["Nr=25", "Eb=1", "Ed=22", "Ef=2", "ClusterSizeApprox=24"]),
         (name: "26-2", parameters: ["Nr=26", "Eb=1", "Ed=23", "Ef=2", "ClusterSizeApprox=24"]),
+        (name: "27-2", parameters: ["Nr=27", "Eb=1", "Ed=24", "Ef=2", "ClusterSizeApprox=24"]),
         (name: "23-3", parameters: ["Nr=23", "Eb=1", "Ed=19", "Ef=3", "ClusterSizeApprox=24"]),
         (name: "24-3", parameters: ["Nr=24", "Eb=1", "Ed=20", "Ef=3", "ClusterSizeApprox=24"]),
-        (name: "25-3", parameters: ["Nr=25", "Eb=1", "Ed=21", "Ef=3", "ClusterSizeApprox=24"]),
-        (name: "26-3", parameters: ["Nr=26", "Eb=1", "Ed=22", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "25--1-21-3", parameters: ["Nr=25", "Eb=1", "Ed=21", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "25--2-20-3", parameters: ["Nr=25", "Eb=2", "Ed=20", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "26--1-22-3", parameters: ["Nr=26", "Eb=1", "Ed=22", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "26--2-21-3", parameters: ["Nr=26", "Eb=2", "Ed=21", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "27--1-23-3", parameters: ["Nr=27", "Eb=1", "Ed=23", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "27--2-22-3", parameters: ["Nr=27", "Eb=2", "Ed=22", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "28--1-24-3", parameters: ["Nr=28", "Eb=1", "Ed=24", "Ef=3", "ClusterSizeApprox=24"]),
+        (name: "28--2-23-3", parameters: ["Nr=28", "Eb=2", "Ed=23", "Ef=3", "ClusterSizeApprox=24"]),
         (name: "23-4", parameters: ["Nr=23", "Eb=1", "Ed=18", "Ef=4", "ClusterSizeApprox=24"]),
         (name: "24-4", parameters: ["Nr=24", "Eb=1", "Ed=19", "Ef=4", "ClusterSizeApprox=24"]),
-        (name: "25-4", parameters: ["Nr=25", "Eb=1", "Ed=20", "Ef=4", "ClusterSizeApprox=24"]),
-        (name: "26-4", parameters: ["Nr=26  ", "Eb=1", "Ed=21", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "25--1-20-4", parameters: ["Nr=25", "Eb=1", "Ed=21", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "25--2-19-4", parameters: ["Nr=25", "Eb=2", "Ed=19", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "26--1-21-4", parameters: ["Nr=26", "Eb=1", "Ed=21", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "26--2-20-4", parameters: ["Nr=26", "Eb=2", "Ed=20", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "27--1-22-4", parameters: ["Nr=27", "Eb=1", "Ed=22", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "27--2-21-4", parameters: ["Nr=27", "Eb=2", "Ed=21", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "28--1-23-4", parameters: ["Nr=28", "Eb=1", "Ed=23", "Ef=4", "ClusterSizeApprox=24"]),
+        (name: "28--2-22-4", parameters: ["Nr=28", "Eb=2", "Ed=22", "Ef=4", "ClusterSizeApprox=24"]),
     ]
 )
