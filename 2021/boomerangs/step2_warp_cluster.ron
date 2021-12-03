@@ -26,10 +26,12 @@ Note on version `#01c2ee0f33aa339b710c48252734f892081e88e4`
   - Add a pattern to force the solution to have five consecutive rounds with 1,1,0,1,1 active S-box. We have observed that this pattern occurs for all the solution with 15 <= rounds <= 20, so we have added this constraint for all instances where Nr >= 15 to speed up the resolution process. As a consequence the optimality is not guarantee for the instances where Nr > 20.
 Note on version `#c719c9b9b45489f934ae5d734af647c6af2dc8ca`
   - Add binary generation to prepare clustering computation
+Note on version `2c14ea9263fbe6d7db7303b2d130ae5a34b3ba6a`
+  - Fix cluster computation. Forbid correct step 1 solutions. Kepp Free variables positions and ensure that 0 and fixed variables will not overlap.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("c719c9b9b45489f934ae5d734af647c6af2dc8ca"),
+        commit: Some("2c14ea9263fbe6d7db7303b2d130ae5a34b3ba6a"),
         sub_modules: true
     ),
     zip_with: [
