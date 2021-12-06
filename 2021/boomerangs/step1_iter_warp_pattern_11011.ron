@@ -8,10 +8,14 @@ Note on version `#48e9656e53f634d2f425858904fbc960e4bba456`
 Note on version `#64c3d3db40368a3c5e27ca76b1d2467979be4391`
 - Add the pattern 1,1,0,1,1 active S-Box in the upper trail. This pattern seems to be active for rounds 15 to 20. The aim of this new constraint 
 is to improve the resolution speed for rounds after 20.
+Note on version `#0f2427e60a324dd6ebd46a4ec00a18c281716b3d`
+- Fix DDT computation
+Note on version `#0f2427e60a324dd6ebd46a4ec00a18c281716b3d`
+- Fix Mzn solution parser for enum case.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("64c3d3db40368a3c5e27ca76b1d2467979be4391"),
+        commit: Some("0f2427e60a324dd6ebd46a4ec00a18c281716b3d"),
         sub_modules: true
     ),
     zip_with: [
@@ -26,14 +30,14 @@ is to improve the resolution speed for rounds after 20.
         "GRADLE": "gradle",
         "JAVA": "java",
         "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
-        "JAR_PATH": "build/libs/step2marine-1.0-SNAPSHOT.jar",
-        "MAIN_CLASS": "AppIter",
+        "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "warp.AppIter",
         "MINIZINC": "!The path to minizinc",
         "PICAT": "!The path to picat",
         "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
     },
     outputs: None, // Read the log file to have the results
     experiments: [
-        (name: "step1-iter-picat", parameters: ["Step1Solver=Picat", "Nr=15", "PrevUB=0;0;0;0;0;0;0;2;4;8;12;20"]),
+        (name: "step1-iter-picat", parameters: ["Step1Solver=Picat"]),
     ]
 )
