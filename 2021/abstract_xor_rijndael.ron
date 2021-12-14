@@ -1,0 +1,192 @@
+(
+    description: Some("
+# Differential Attack on Rijndael using the Abstract XOR constraint[^1].
+
+## Version notes
+
+### Version `#badd76911253d8fc78ee9b6ff23915cf7b6ad5ac`
+- First model version. Use a lot of optimisations.
+  - Use DomWDegDecompose heuristic
+  - Use custom AbstractXOREquation propagator instead of sum != 1
+  - Use constraint table for XOR between columns and MDS
+  - Use dedicated Byte XOR Constraint instead of constraint table
+
+[^1] Rouquette, Loïc, et Christine Solnon. « AbstractXOR: A Global Constraint Dedicated to Differential Cryptanalysis ». In Principles and Practice of Constraint Programming, édité par Helmut Simonis, 12333:566‑84. Lecture Notes in Computer Science. Cham: Springer International Publishing, 2020. https://doi.org/10.1007/978-3-030-58475-7_33.
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/rijndael-abstracxor.git",
+        commit: Some("badd76911253d8fc78ee9b6ff23915cf7b6ad5ac"),
+        sub_modules: true
+    ),
+    commands: (
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS}"
+    ),
+    shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/rijndael-abstracxor-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "Step2Kt",
+    },
+    outputs: Some((
+        delimiter: "\t",
+        columns: [
+            Some("ObjStep2"), 
+            None,
+            Some("#Decisions"), 
+            Some("ObjStep1 for Best ObjStep2")
+        ]
+    )),
+    experiments: [
+        // Parameters <nr> <block_size> <key_size> <obj_step_1>
+        // Rijndael 128-128
+        (name: "128-128-3-5", parameters: ["3 128 128 5"]),
+        (name: "128-128-4-12", parameters: ["4 128 128 12"]),
+        (name: "128-128-5-17", parameters: ["5 128 128 17"]),
+        // Rijndael 128-160
+        (name: "128-160-3-4", parameters: ["3 128 160 4"]),
+        (name: "128-160-4-5", parameters: ["4 128 160 5"]),
+        (name: "128-160-5-10", parameters: ["5 128 160 10"]),
+        (name: "128-160-6-17", parameters: ["6 128 160 17"]),
+        (name: "128-160-7-19", parameters: ["7 128 160 19"]),
+        (name: "128-160-8-23", parameters: ["8 128 160 23"]),
+        // Rijndael 128-192
+        (name: "128-192-3-1", parameters: ["3 128 192 1"]),
+        (name: "128-192-4-4", parameters: ["4 128 192 4"]),
+        (name: "128-192-5-5", parameters: ["5 128 192 5"]),
+        (name: "128-192-6-10", parameters: ["6 128 192 10"]),
+        (name: "128-192-7-14", parameters: ["7 128 192 14"]),
+        (name: "128-192-8-18", parameters: ["8 128 192 18"]),
+        (name: "128-192-9-24", parameters: ["9 128 192 24"]),
+        // Rijndael 128-224
+        (name: "128-224-3-1", parameters: ["3 128 224 1"]),
+        (name: "128-224-4-3", parameters: ["4 128 224 3"]),
+        (name: "128-224-5-6", parameters: ["5 128 224 6"]),
+        (name: "128-224-6-8", parameters: ["6 128 224 8"]),
+        (name: "128-224-7-13", parameters: ["7 128 224 13"]),
+        (name: "128-224-8-18", parameters: ["8 128 224 18"]),
+        (name: "128-224-9-22", parameters: ["9 128 224 22"]),
+        (name: "128-224-10-24", parameters: ["10 128 224 24"]),
+        (name: "128-224-11-27", parameters: ["11 128 224 27"]),
+        (name: "128-224-12-34", parameters: ["12 128 224 34"]),
+        // Rijndael 125-256
+        (name: "128-256-3-1", parameters: ["3 128 256 1"]),
+        (name: "128-256-4-3", parameters: ["4 128 256 3"]),
+        (name: "128-256-5-3", parameters: ["5 128 256 3"]),
+        (name: "128-256-6-5", parameters: ["6 128 256 5"]),
+        (name: "128-256-7-5", parameters: ["7 128 256 5"]),
+        (name: "128-256-8-10", parameters: ["8 128 256 10"]),
+        (name: "128-256-9-15", parameters: ["9 128 256 15"]),
+        (name: "128-256-10-16", parameters: ["10 128 256 16"]),
+        (name: "128-256-11-20", parameters: ["11 128 256 20"]),
+        (name: "128-256-12-20", parameters: ["12 128 256 20"]),
+        (name: "128-256-13-24", parameters: ["13 128 256 24"]),
+        (name: "128-256-14-24", parameters: ["14 128 256 24"]),
+        // Rijndael 160-128
+        (name: "160-128-3-9", parameters: ["3 160 128 9"]),
+        (name: "160-128-4-18", parameters: ["4 160 128 18"]),
+        // Rijndael 160-160
+        (name: "160-160-3-5", parameters: ["3 160 160 5"]),
+        (name: "160-160-4-10", parameters: ["4 160 160 10"]),
+        (name: "160-160-5-17", parameters: ["5 160 160 17"]),
+        (name: "160-160-6-21", parameters: ["6 160 160 21"]),
+        // Rijndael 160-192
+        (name: "160-192-3-4", parameters: ["3 160 192 4"]),
+        (name: "160-192-4-6", parameters: ["4 160 192 6"]),
+        (name: "160-192-5-9", parameters: ["5 160 192 9"]),
+        (name: "160-192-6-15", parameters: ["6 160 192 15"]),
+        (name: "160-192-7-19", parameters: ["7 160 192 19"]),
+        (name: "160-192-8-23", parameters: ["8 160 192 23"]),
+        // Rijndael 160-224
+        (name: "160-224-3-2", parameters: ["3 160 224 2"]),
+        (name: "160-224-4-5", parameters: ["4 160 224 5"]),
+        (name: "160-224-5-10", parameters: ["5 160 224 10"]),
+        (name: "160-224-6-15", parameters: ["6 160 224 15"]),
+        (name: "160-224-7-20", parameters: ["7 160 224 20"]),
+        (name: "160-224-8-24", parameters: ["8 160 224 24"]),
+        (name: "160-224-9-30", parameters: ["9 160 224 30"]),
+        // Rijndael 160-256
+        (name: "160-256-3-1", parameters: ["3 160 256 1"]),
+        (name: "160-256-4-4", parameters: ["4 160 256 4"]),
+        (name: "160-256-5-6", parameters: ["5 160 256 6"]),
+        (name: "160-256-6-12", parameters: ["6 160 256 12"]),
+        (name: "160-256-7-15", parameters: ["7 160 256 15"]),
+        (name: "160-256-8-20", parameters: ["8 160 256 20"]),
+        (name: "160-256-9-23", parameters: ["9 160 256 23"]),
+        (name: "160-256-10-27", parameters: ["10 160 256 27"]),
+        (name: "160-256-11-32", parameters: ["11 160 256 32"]),
+        // Rijndael 192-128
+        (name: "192-128-3-9", parameters: ["3 192 128 9"]),
+        // Rijndael 192-160
+        (name: "192-160-3-6", parameters: ["3 192 160 6"]),
+        (name: "192-160-4-15", parameters: ["4 192 160 15"]),
+        (name: "192-160-5-19", parameters: ["5 192 160 19"]),
+        // Rijndael 192-192
+        (name: "192-192-3-5", parameters: ["3 192 192 5"]),
+        (name: "192-192-4-9", parameters: ["4 192 192 9"]),
+        (name: "192-192-5-14", parameters: ["5 192 192 14"]),
+        (name: "192-192-6-19", parameters: ["6 192 192 19"]),
+        (name: "192-192-7-25", parameters: ["7 192 192 25"]),
+        // Rijndael 192-224
+        (name: "192-224-3-4", parameters: ["3 192 224 4"]),
+        (name: "192-224-4-8", parameters: ["4 192 224 8"]),
+        (name: "192-224-5-15", parameters: ["5 192 224 15"]),
+        (name: "192-224-6-16", parameters: ["6 192 224 16"]),
+        (name: "192-224-7-24", parameters: ["7 192 224 24"]),
+        (name: "192-224-8-32", parameters: ["8 192 224 32"]),
+        // Rijndael 192-256
+        (name: "192-256-3-1", parameters: ["3 192 256 1"]),
+        (name: "192-256-4-5", parameters: ["4 192 256 5"]),
+        (name: "192-256-5-12", parameters: ["5 192 256 12"]),
+        (name: "192-256-6-17", parameters: ["6 192 256 17"]),
+        (name: "192-256-7-18", parameters: ["7 192 256 18"]),
+        (name: "192-256-8-24", parameters: ["8 192 256 24"]),
+        (name: "192-256-9-29", parameters: ["9 192 256 29"]),
+        (name: "192-256-10-38", parameters: ["10 192 256 38"]),
+        // Rijndael 224-128
+        (name: "224-128-3-9", parameters: ["3 224 128 9"]),
+        // Rijndael 224-160
+        (name: "224-160-3-9", parameters: ["3 224 160 9"]),
+        (name: "224-160-4-19", parameters: ["4 224 160 19"]),
+        // Rijndael 224-192
+        (name: "224-192-3-6", parameters: ["3 224 192 6"]),
+        (name: "224-192-4-13", parameters: ["4 224 192 13"]),
+        (name: "224-192-5-20", parameters: ["5 224 192 20"]),
+        (name: "224-192-6-28", parameters: ["6 224 192 28"]),
+        // Rijndael 224-224
+        (name: "224-224-3-6", parameters: ["3 224 224 6"]),
+        (name: "224-224-4-13", parameters: ["4 224 224 13"]),
+        (name: "224-224-5-16", parameters: ["5 224 224 16"]),
+        (name: "224-224-6-23", parameters: ["6 224 224 23"]),
+        (name: "224-224-7-31", parameters: ["7 224 224 31"]),
+        // Rijndael 224-256
+        (name: "224-256-3-4", parameters: ["3 224 256 4"]),
+        (name: "224-256-4-8", parameters: ["4 224 256 8"]),
+        (name: "224-256-5-15", parameters: ["5 224 256 15"]),
+        (name: "224-256-6-18", parameters: ["6 224 256 18"]),
+        (name: "224-256-7-20", parameters: ["7 224 256 20"]),
+        (name: "224-256-8-28", parameters: ["8 224 256 28"]),
+        (name: "224-256-9-37", parameters: ["9 224 256 37"]),
+        // Rijndael 256-128
+        (name: "256-128-3-9", parameters: ["3 256 128 9"]),
+        // Rijndael 256-160
+        (name: "256-160-3-9", parameters: ["3 256 160 9"]),
+        (name: "256-160-4-20", parameters: ["4 256 160 20"]),
+        // Rijndael 256-192
+        (name: "256-192-3-9", parameters: ["3 256 192 9"]),
+        (name: "256-192-4-18", parameters: ["4 256 192 18"]),
+        (name: "256-192-5-24", parameters: ["5 256 192 24"]),
+        // Rijndael 256-224
+        (name: "256-224-3-6", parameters: ["3 256 224 6"]),
+        (name: "256-224-4-18", parameters: ["4 256 224 18"]),
+        (name: "256-224-5-28", parameters: ["5 256 224 28"]),
+        // Rijndael 256-256
+        (name: "256-256-3-5", parameters: ["3 256 256 5"]),
+        (name: "256-256-4-13", parameters: ["4 256 256 13"]),
+        (name: "256-256-5-16", parameters: ["5 256 256 16"]),
+        (name: "256-256-6-20", parameters: ["6 256 256 20"]),
+        (name: "256-256-7-27", parameters: ["7 256 256 27"]),
+        (name: "256-256-8-37", parameters: ["8 256 256 37"]),
+    ]
+)
