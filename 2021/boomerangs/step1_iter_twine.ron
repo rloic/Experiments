@@ -1,0 +1,35 @@
+(
+    description: Some("
+Step1Opt Iterative for Boomerang attacks on Twine.
+Note on version `#4aaa291cc9e78e87b7fbc55c59e025327829f444`
+- First release. Use the intermediate result to speed up the resolution process. e.g. obj for r in 0..3 >= 0.
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/twine",
+        commit: Some("4aaa291cc9e78e87b7fbc55c59e025327829f444"),
+        sub_modules: true
+    ),
+    zip_with: [
+        "{SOURCES}/solutions"
+    ],
+    commands: (
+        clean: "rm -rf solutions",
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Logger.level=ALL"
+    ),
+    shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-twine-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "twine.AppIter",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    outputs: None, // Read the log file to have the results
+    experiments: [
+        (name: "step1-iter-picat", parameters: ["Step1Solver=Picat"]),
+        // (name: "step1-iter-gurobi", parameters: ["Step1Solver=Gurobi", "NbThreads=32"]),
+    ]
+)
