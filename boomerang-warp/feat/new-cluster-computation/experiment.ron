@@ -27,11 +27,13 @@ Note on version `#01c2ee0f33aa339b710c48252734f892081e88e4`
 Note on version `#c719c9b9b45489f934ae5d734af647c6af2dc8ca`
   - Add binary generation to prepare clustering computation
 Note on version `a9610f764118d3d1ad44f34191e4f0fa5666261b`
-  - Fix cluster computation. Forbid correct step 1 solutions. Kepp Free variables positions and ensure that 0 and fixed variables will not overlap.
+  - Fix cluster computation. Forbid correct step 1 solutions. Keep Free variables positions and ensure that 0 and fixed variables will not overlap.
+Note on version `3ab5bfa1bfe346f92a7b4ee2afc0d36e927a5c23`
+  - Use new cluster computation. Free variables are no more taken into account when choosing distinct Step 1 solutions.
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("a9610f764118d3d1ad44f34191e4f0fa5666261b"),
+        commit: Some("3ab5bfa1bfe346f92a7b4ee2afc0d36e927a5c23"),
         sub_modules: true
     ),
     zip_with: [
@@ -57,10 +59,10 @@ Note on version `a9610f764118d3d1ad44f34191e4f0fa5666261b`
     },
     experiments: [
         (name: "18", parameters: ["Nr=18", "ProbaOpt=58", "ProbaLimit=68", "Start=0", "End=17"]),
-        (name: "19", parameters: ["Nr=19", "ObjStep1=70", "ProbaLimit=80", "Start=0", "End=18"]),
-        (name: "20", parameters: ["Nr=20", "ObjStep1=84", "ProbaLimit=94", "Start=0", "End=19"]),
-        (name: "21", parameters: ["Nr=21", "ObjStep1=104", "ProbaLimit=114", "Start=0", "End=20"]),
-        (name: "22", parameters: ["Nr=22", "ObjStep1=120", "ProbaLimit=130", "Start=0", "End=21"]),
-        (name: "23", parameters: ["Nr=23", "ObjStep1=140", "ProbaLimit=150", "Start=0", "End=22"]),
+        (name: "19", parameters: ["Nr=19", "ProbaOpt=70", "ProbaLimit=80", "Start=0", "End=18"]),
+        (name: "20", parameters: ["Nr=20", "ProbaOpt=84", "ProbaLimit=94", "Start=0", "End=19"]),
+        (name: "21", parameters: ["Nr=21", "ProbaOpt=104", "ProbaLimit=114", "Start=0", "End=20"]),
+        (name: "22", parameters: ["Nr=22", "ProbaOpt=120", "ProbaLimit=130", "Start=0", "End=21"]),
+        (name: "23", parameters: ["Nr=23", "ProbaOpt=140", "ProbaLimit=150", "Start=0", "End=22"]),
     ]
 )
