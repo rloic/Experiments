@@ -1,0 +1,66 @@
+(
+    description: Some("
+# Compute distinguisher clustering
+
+This experiment computes Step1 and Step2. If Step1Opt is not specified, compute Step1Opt before Step1 and Step2.
+**This experiment ignores from round 23 to 41 since we don't have Step1Opt in less than one week.**
+**Add pattern 11011 for all instances Nr >= 15. We are sure that this pattern occurs for all instances where 15 <= rounds <= 20. Since we cannot compute instances where Nr > 20 without this pattern we cannot guarantee that this pattern is also present in the optimal solution for Nr > 20**
+
+**###########################################################################################**
+**# ! IMPORTANT !                                                                           #**
+**# The experiment `step2_warp_prepare_cluster.ron` must be run before running this script. #**
+**###########################################################################################**
+
+## Version notes
+Note on version `#e3261b9744a16f0004889216dda19e53caad1d1d`
+- Fix Step2 parsing
+Note on version `#1f7bd5671c022efd0aca42a80c37b91f4057e2bf`
+- Create optimized version:
+  - Obj sum is simplified
+  - Quine-McCluskey is used to generate the constraints
+Note on version `#e218ed39e6eebb3c545b448d16223bde044cbfdd`
+  - Add gurobi solver
+Note on version `#17f9d69c5f0e5f396aa51db96cdd4886129b6a8a`
+  - Change outputs
+Note on version `#01c2ee0f33aa339b710c48252734f892081e88e4`
+  - Add a pattern to force the solution to have five consecutive rounds with 1,1,0,1,1 active S-box. We have observed that this pattern occurs for all the solution with 15 <= rounds <= 20, so we have added this constraint for all instances where Nr >= 15 to speed up the resolution process. As a consequence the optimality is not guarantee for the instances where Nr > 20.
+Note on version `#c719c9b9b45489f934ae5d734af647c6af2dc8ca`
+  - Add binary generation to prepare clustering computation
+Note on version `a9610f764118d3d1ad44f34191e4f0fa5666261b`
+  - Fix cluster computation. Forbid correct step 1 solutions. Kepp Free variables positions and ensure that 0 and fixed variables will not overlap.
+    "),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/step2marine",
+        commit: Some("a9610f764118d3d1ad44f34191e4f0fa5666261b"),
+        sub_modules: true
+    ),
+    zip_with: [
+        "{SOURCES}/solutions"
+    ],
+    commands: (
+        clean: "rm -rf solutions",
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} {LOGGER_CONFIG} Selection=MANUAL Mode=Distinguisher Step1Folder={SOLUTION_PATH}/step1 Step2Folder={SOLUTION_PATH}/step2"
+    ),
+    shortcuts: {
+        "SOLUTION_PATH": "../../../../../2021/boomerangs/step2_warp_prepare_clusterc719c9.d/src/solutions",
+        "LOGGER_CONFIG": "Logger.level=ALL Logger.scriptMode=true",
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "warp.AppCluster",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "SOLVER": "Picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    experiments: [
+        (name: "18", parameters: ["Nr=18", "ProbaOpt=58", "ProbaLimit=68", "Start=0", "End=17"]),
+        (name: "19", parameters: ["Nr=19", "ObjStep1=70", "ProbaLimit=80", "Start=0", "End=18"]),
+        (name: "20", parameters: ["Nr=20", "ObjStep1=84", "ProbaLimit=94", "Start=0", "End=19"]),
+        (name: "21", parameters: ["Nr=21", "ObjStep1=104", "ProbaLimit=114", "Start=0", "End=20"]),
+        (name: "22", parameters: ["Nr=22", "ObjStep1=120", "ProbaLimit=130", "Start=0", "End=21"]),
+        (name: "23", parameters: ["Nr=23", "ObjStep1=140", "ProbaLimit=150", "Start=0", "End=22"]),
+    ]
+)
