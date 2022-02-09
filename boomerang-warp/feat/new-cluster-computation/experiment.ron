@@ -30,10 +30,12 @@ Note on version `a9610f764118d3d1ad44f34191e4f0fa5666261b`
   - Fix cluster computation. Forbid correct step 1 solutions. Keep Free variables positions and ensure that 0 and fixed variables will not overlap.
 Note on version `3ab5bfa1bfe346f92a7b4ee2afc0d36e927a5c23`
   - Use new cluster computation. Free variables are no more taken into account when choosing distinct Step 1 solutions.
+Note on version `10d51f92a67e460454f8f08e25e1302b5799edbf`
+  - Fix folder creation for AppCluster
     "),
     versioning: (
         url: "git@gitlab.inria.fr:lrouquet/step2marine",
-        commit: Some("3ab5bfa1bfe346f92a7b4ee2afc0d36e927a5c23"),
+        commit: Some("0f3959beb0b4bf562afa98edbee6bd5450899a03"),
         sub_modules: true
     ),
     zip_with: [
