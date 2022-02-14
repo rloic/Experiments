@@ -1,0 +1,37 @@
+(
+    description: Some("# Compute distinguisher clustering"),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/step2marine",
+        commit: Some("985521b758c0a6d3a7f2773052a6c8b772d76a59"),
+        sub_modules: true
+    ),
+    zip_with: [
+        "{SOURCES}/solutions"
+    ],
+    commands: (
+        clean: "rm -rf solutions",
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} {LOGGER_CONFIG} Selection=MANUAL Mode=Distinguisher Step1Folder={SOLUTION_PATH}/step1 Step2Folder={SOLUTION_PATH}/step2"
+    ),
+    shortcuts: {
+        "SOLUTION_PATH": "../../../../../2021/boomerangs/step2_warp_prepare_clusterc719c9.d/src/solutions",
+        "LOGGER_CONFIG": "Logger.level=ALL Logger.scriptMode=true",
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "warp.AppCluster",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "SOLVER": "Picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    experiments: [
+        (name: "18", parameters: ["Nr=18", "ProbaOpt=58", "ProbaLimit=68", "Start=0", "End=17"]),
+        (name: "19", parameters: ["Nr=19", "ProbaOpt=70", "ProbaLimit=80", "Start=0", "End=18"]),
+        (name: "20", parameters: ["Nr=20", "ProbaOpt=84", "ProbaLimit=94", "Start=0", "End=19"]),
+        (name: "21", parameters: ["Nr=21", "ProbaOpt=104", "ProbaLimit=114", "Start=0", "End=20"]),
+        (name: "22", parameters: ["Nr=22", "ProbaOpt=120", "ProbaLimit=130", "Start=0", "End=21"]),
+        (name: "23", parameters: ["Nr=23", "ProbaOpt=140", "ProbaLimit=150", "Start=0", "End=22"]),
+    ]
+)
