@@ -1,0 +1,58 @@
+(
+    description: Some("# Boomerang attack on Twine."),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/twine",
+        commit: Some("b79513068ecef33201e1de15cb3e177d11462479"),
+        sub_modules: true
+    ),
+    zip_with: [
+        "{SOURCES}/solutions"
+    ],
+    commands: (
+        clean: "rm -rf solutions",
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} Logger.level=ALL"
+    ),
+    shortcuts: {
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-twine-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "twine.App",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "SOLVER": "Picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    outputs: Some((
+        delimiter: "\t",
+        columns: [
+            Some("Step 1 Opt Time"),
+            Some("Step 1 Enum Time"),
+            Some("Step 2 Opt Time"),
+            Some("Probability")
+        ]
+    )),
+    experiments: [
+        (name: "3", parameters: ["Nr=3", "ObjStep1=0"]),
+        (name: "4", parameters: ["Nr=4", "ObjStep1=0"]),
+        (name: "5", parameters: ["Nr=5", "ObjStep1=0"]),
+        (name: "6", parameters: ["Nr=6", "ObjStep1=2"]),
+        (name: "7", parameters: ["Nr=7", "ObjStep1=4"]),
+        (name: "8", parameters: ["Nr=8", "ObjStep1=6"]),
+        (name: "9", parameters: ["Nr=9", "ObjStep1=8"]),
+        (name: "10", parameters: ["Nr=10", "ObjStep1=14"]),
+        (name: "11", parameters: ["Nr=11", "ObjStep1=20"]),
+        (name: "12", parameters: ["Nr=12", "ObjStep1=26"]),
+        (name: "13", parameters: ["Nr=13", "ObjStep1=34"]),
+        (name: "14", parameters: ["Nr=14", "ObjStep1=42"]),
+        (name: "15", parameters: ["Nr=15", "ObjStep1=52"]),
+        (name: "16", parameters: ["Nr=16", "ObjStep1=64"]),
+        (name: "17", parameters: ["Nr=17", "ObjStep1=72"]),
+        (name: "18", parameters: ["Nr=18", "ObjStep1=78"]),
+        (name: "19", parameters: ["Nr=19", "ObjStep1=82"]),
+        (name: "20", parameters: ["Nr=20", "ObjStep1=88"]),
+        // (name: "21", parameters: ["Nr=21", "ObjStep1=104"]),
+        // (name: "22", parameters: ["Nr=22", "ObjStep1=120"]),
+    ]
+)
