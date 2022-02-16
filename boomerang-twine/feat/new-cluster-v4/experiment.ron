@@ -1,7 +1,7 @@
 (
     description: Some("# Compute distinguisher clustering for Twine"),
     versioning: (
-        url: "git@gitlab.inria.fr:lrouquet/step2marine",
+        url: "git@gitlab.inria.fr:lrouquet/twine",
         commit: Some("b79513068ecef33201e1de15cb3e177d11462479"),
         sub_modules: true
     ),
@@ -19,7 +19,7 @@
         "GRADLE": "gradle",
         "JAVA": "java",
         "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
-        "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
+        "JAR_PATH": "build/libs/boomerang-twine-1.0-SNAPSHOT.jar",
         "MAIN_CLASS": "warp.AppCluster",
         "MINIZINC": "!The path to minizinc",
         "PICAT": "!The path to picat",
@@ -36,6 +36,6 @@
         (name: "14", parameters: ["Nr=14", "ProbaOpt=42", "ProbaLimit=52", "Start=0", "End=13"]),
         (name: "15", parameters: ["Nr=15", "ProbaOpt=52", "ProbaLimit=62", "Start=0", "End=14"]),
         (name: "16", parameters: ["Nr=16", "ProbaOpt=64", "ProbaLimit=74", "Start=0", "End=15"]),
-       / (name: "17", parameters: ["Nr=17", "ProbaOpt=XX", "ProbaLimit=XX", "Start=0", "End=16"]),
+       // (name: "17", parameters: ["Nr=17", "ProbaOpt=XX", "ProbaLimit=XX", "Start=0", "End=16"]),
     ]
 )
