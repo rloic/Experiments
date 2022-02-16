@@ -1,0 +1,41 @@
+(
+    description: Some("# Compute distinguisher clustering for Twine"),
+    versioning: (
+        url: "git@gitlab.inria.fr:lrouquet/step2marine",
+        commit: Some("a9610f764118d3d1ad44f34191e4f0fa5666261b"),
+        sub_modules: true
+    ),
+    zip_with: [
+        "{SOURCES}/solutions"
+    ],
+    commands: (
+        clean: "rm -rf solutions",
+        build: "{GRADLE} jar",
+        execute: "{JAVA} {JVM_ARGS} -cp {JAR_PATH} {MAIN_CLASS} MiniZinc={MINIZINC} Picat={PICAT} PicatFzn={PICAT_FZN} Limit=100 SolverStep1Opt={SOLVER} SolverStep1Enum={SOLVER} {LOGGER_CONFIG} Selection=MANUAL Mode=Distinguisher Step1Folder={SOLUTION_PATH}/step1 Step2Folder={SOLUTION_PATH}/step2"
+    ),
+    shortcuts: {
+        "SOLUTION_PATH": "../../../step2-opt.d/experimentb79513.d/src/solutions",
+        "LOGGER_CONFIG": "Logger.level=ALL Logger.scriptMode=true",
+        "GRADLE": "gradle",
+        "JAVA": "java",
+        "JVM_ARGS": "-Xmx32g -Duser.country=UK -Duser.language=en",
+        "JAR_PATH": "build/libs/boomerang-warp-1.0-SNAPSHOT.jar",
+        "MAIN_CLASS": "warp.AppCluster",
+        "MINIZINC": "!The path to minizinc",
+        "PICAT": "!The path to picat",
+        "SOLVER": "Picat",
+        "PICAT_FZN": "!The path to the fzn_picat_sat.pi file",
+    },
+    experiments: [
+        (name:  "8", parameters: [ "Nr=8",  "ProbaOpt=6", "ProbaLimit=16", "Start=0",  "End=7"]),
+        (name:  "9", parameters: [ "Nr=9",  "ProbaOpt=8", "ProbaLimit=18", "Start=0",  "End=8"]),
+        (name: "10", parameters: ["Nr=10", "ProbaOpt=14", "ProbaLimit=24", "Start=0",  "End=9"]),
+        (name: "11", parameters: ["Nr=11", "ProbaOpt=20", "ProbaLimit=30", "Start=0", "End=10"]),
+        (name: "12", parameters: ["Nr=12", "ProbaOpt=26", "ProbaLimit=36", "Start=0", "End=11"]),
+        (name: "13", parameters: ["Nr=13", "ProbaOpt=34", "ProbaLimit=44", "Start=0", "End=12"]),
+        (name: "14", parameters: ["Nr=14", "ProbaOpt=42", "ProbaLimit=52", "Start=0", "End=13"]),
+        (name: "15", parameters: ["Nr=15", "ProbaOpt=52", "ProbaLimit=62", "Start=0", "End=14"]),
+        (name: "16", parameters: ["Nr=16", "ProbaOpt=64", "ProbaLimit=74", "Start=0", "End=15"]),
+       // (name: "17", parameters: ["Nr=17", "ProbaOpt=XX", "ProbaLimit=XX", "Start=0", "End=16"]),
+    ]
+)
